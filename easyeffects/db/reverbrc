@@ -1,9 +1,0 @@
-[soe][Reverb#0]
-amount=-17
-bassCut=250
-bypass=true
-decayTime=0.8
-diffusion=0.6
-hfDamp=6000
-predelay=8
-trebleCut=7000
