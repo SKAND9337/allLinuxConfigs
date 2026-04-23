@@ -1,0 +1,19 @@
+configuration {
+	/*---------- General setting ----------*/
+	drun-display-format: "{icon} {name}";
+	show-icons: true;
+    font: "IntoneMono Nerd Font, Medium 12";
+	display-drun: "Launch  ";
+	icon-theme: "Papirus";
+	disable-history: false;
+	me-select-entry: "MousePrimary";
+	me-accept-entry: "!MousePrimary";
+	steal-focus: false;
+	matching: "fuzzy";
+	sorting-method: "fzf";
+	kb-clear-line: "Control+a";
+	kb-move-front: "";
+	kb-cancel: "Escape,Control+w";
+}
+	@import "/home/skand/.config/rofi/launchers/type-3/style-1.rasi"
+

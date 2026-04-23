@@ -1,0 +1,45 @@
+bold_font        auto
+font_family      JetBrainsMonoNLNFM-Italic
+italic_font      auto
+bold_italic_font auto
+font_size 17.75
+disable_ligatures never
+
+
+hide_window_decorations yes
+window_padding_width 8
+scrollback_lines 5000
+scrollbar hovered
+scrollbar_hover_width 1
+scrollbar_handle_opacity 0.5
+scrollbar_radius 0.4
+scrollbar_gap 0.1
+scrollbar_width 0.5
+scrollbar_interactive yes
+
+
+# background_image /home/skand/Pictures/WALLPAPERS/ALT.png
+background_image_layout centered
+background_opacity 0.7
+background_blur 1
+background_tint 0.95
+
+
+cursor_trail_color #40f7ba
+cursor_trail 2
+cursor_trail_decay 0.1 0.4
+cursor_shape underline
+cursor_underline_thickness 4.0
+cursor #40f7ba
+shell_integration no-cursor
+
+detect_urls yes
+underline_hyperlinks always
+
+tab_bar_edge bottom
+tab_bar_style slant
+tab_bar_margin_width 0.0
+tab_bar_margin_height 0.0 0.0
+
+
+map ctrl+q close_window
