@@ -1,0 +1,23 @@
+[Presets]
+lastLoadedOutputPreset=EARPHONES 1
+
+[StreamInputs]
+inputDevice=bluez_input.41:42:29:89:EE:EA
+
+[StreamOutputs]
+mostUsedPresets=SPEAKERS 1,EARPHONES 1
+outputDevice=bluez_output.41_42_29_89_EE_EA.1
+plugins=stereo_tools#0,reverb#0,bass_enhancer#0
+usedPresets=EARPHONES 1:160,SPEAKERS 1:262
+visiblePage=pluginsPage
+visiblePlugin=reverb#0
+
+[Style]
+forceBreezeTheme=false
+
+[Window]
+autostartOnLogin=true
+height=1074
+noWindowAfterStarting=true
+showTrayIcon=false
+width=955

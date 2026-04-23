@@ -1,0 +1,6 @@
+[soe][BassEnhancer#0]
+amount=3
+harmonics=6
+inputGain=-0.3
+outputGain=-0.3
+scope=95
