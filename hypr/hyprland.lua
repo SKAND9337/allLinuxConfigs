@@ -1,13 +1,14 @@
+
+-- File From:
 -- ~/.config/hypr/hyprland.lua
--- Hyprland 0.55+ Lua config, adapted from the official example + your existing setup.
 
 local terminal = "kitty"
 local fileManager = "dolphin"
 local mainMod = "SUPER"
 
-------------------
--- MONITORS
-------------------
+--------------
+-- MONITORS --
+--------------
 
 hl.monitor({
     output = "",
@@ -16,18 +17,18 @@ hl.monitor({
     scale = 1,
 })
 
-------------------
--- ENVIRONMENT
-------------------
+-----------------
+-- ENVIRONMENT --
+-----------------
 
 hl.env("XCURSOR_THEME", "LighTech-RE")
 hl.env("XCURSOR_SIZE", "32")
 hl.env("HYPRCURSOR_THEME", "LighTech-RE")
 hl.env("HYPRCURSOR_SIZE", "32")
 
-------------------
--- AUTOSTART
-------------------
+---------------
+-- AUTOSTART --
+---------------
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("clipse -listen")
@@ -41,9 +42,9 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("wl-paste --type image --watch cliphist store")
 end)
 
-------------------
--- CORE CONFIG
-------------------
+-----------------
+-- CORE CONFIG --
+-----------------
 
 hl.config({
     cursor = {
@@ -73,24 +74,25 @@ hl.config({
     },
 
     decoration = {
-        rounding = 13,
-        rounding_power = 3,
+        rounding = 9,
+        rounding_power = 2,
 
         active_opacity = 0.91,
         inactive_opacity = 0.75,
 
         shadow = {
             enabled = true,
-            range = 15,
+            range = 20,
             render_power = 3,
             color = 0xee1a1a1a,
         },
 
         blur = {
             enabled = true,
-            size = 6,
+            size = 4,
             passes = 2,
-            vibrancy = 0.3,
+            vibrancy = 0.25,
+            contrast = 0.5,
         },
     },
 
@@ -115,9 +117,9 @@ hl.config({
     },
 })
 
-------------------
--- LAYOUTS
-------------------
+-------------
+-- LAYOUTS --
+-------------
 
 hl.config({
     dwindle = {
@@ -134,13 +136,13 @@ hl.config({
 hl.config({
     misc = {
         force_default_wallpaper = 0,
-        disable_hyprland_logo = false,
+        disable_hyprland_logo = true,
     },
 })
 
-------------------
--- ANIMATIONS
-------------------
+----------------
+-- ANIMATIONS --
+----------------
 
 hl.curve("easeOutQuint", {
     type = "bezier",
@@ -174,27 +176,27 @@ hl.curve("easy", {
     dampening = 15.8273644,
 })
 
-hl.animation({ leaf = "global",        enabled = true, speed = 10,   bezier = "default" })
-hl.animation({ leaf = "border",        enabled = true, speed = 5.39,  bezier = "easeOutQuint" })
-hl.animation({ leaf = "windows",       enabled = true, speed = 4.79,  spring  = "easy" })
-hl.animation({ leaf = "windowsIn",     enabled = true, speed = 4.1,   spring  = "easy",         style = "popin 87%" })
-hl.animation({ leaf = "windowsOut",    enabled = true, speed = 1.49,  bezier = "linear",        style = "popin 87%" })
-hl.animation({ leaf = "fadeIn",        enabled = true, speed = 1.73,  bezier = "almostLinear" })
-hl.animation({ leaf = "fadeOut",       enabled = true, speed = 1.46,  bezier = "almostLinear" })
-hl.animation({ leaf = "fade",          enabled = true, speed = 3.03,  bezier = "quick" })
-hl.animation({ leaf = "layers",        enabled = true, speed = 3.81,  bezier = "easeOutQuint" })
-hl.animation({ leaf = "layersIn",      enabled = true, speed = 4,     bezier = "easeOutQuint", style = "fade" })
-hl.animation({ leaf = "layersOut",     enabled = true, speed = 1.5,   bezier = "linear",       style = "fade" })
-hl.animation({ leaf = "fadeLayersIn",  enabled = true, speed = 1.79,  bezier = "almostLinear" })
-hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39,  bezier = "almostLinear" })
-hl.animation({ leaf = "workspaces",    enabled = true, speed = 1.94,  bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesIn",  enabled = true, speed = 1.21,  bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94,  bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "zoomFactor",    enabled = true, speed = 7,     bezier = "quick" })
+hl.animation({ leaf = "global",        enabled = true, speed = 10,    bezier = "default"                              })
+hl.animation({ leaf = "border",        enabled = true, speed = 5.39,  bezier = "easeOutQuint"                         })
+hl.animation({ leaf = "windows",       enabled = true, speed = 4.79,  spring  = "easy"                                })
+hl.animation({ leaf = "windowsIn",     enabled = true, speed = 4.1,   spring  = "easy",           style = "popin 87%" })
+hl.animation({ leaf = "windowsOut",    enabled = true, speed = 1.49,  bezier = "linear",          style = "popin 87%" })
+hl.animation({ leaf = "fadeIn",        enabled = true, speed = 1.73,  bezier = "almostLinear"                         })
+hl.animation({ leaf = "fadeOut",       enabled = true, speed = 1.46,  bezier = "almostLinear"                         })
+hl.animation({ leaf = "fade",          enabled = true, speed = 3.03,  bezier = "quick"                                })
+hl.animation({ leaf = "layers",        enabled = true, speed = 3.81,  bezier = "easeOutQuint"                         })
+hl.animation({ leaf = "layersIn",      enabled = true, speed = 4,     bezier = "easeOutQuint",   style = "fade"       })
+hl.animation({ leaf = "layersOut",     enabled = true, speed = 1.5,   bezier = "linear",         style = "fade"       })
+hl.animation({ leaf = "fadeLayersIn",  enabled = true, speed = 1.79,  bezier = "almostLinear"                         })
+hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39,  bezier = "almostLinear"                         })
+hl.animation({ leaf = "workspaces",    enabled = true, speed = 1.94,  bezier = "almostLinear",   style = "fade"       })
+hl.animation({ leaf = "workspacesIn",  enabled = true, speed = 1.21,  bezier = "almostLinear",   style = "fade"       })
+hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94,  bezier = "almostLinear",   style = "fade"       })
+hl.animation({ leaf = "zoomFactor",    enabled = true, speed = 7,     bezier = "quick"                                })
 
-------------------
--- GESTURES
-------------------
+--------------
+-- GESTURES --
+--------------
 
 hl.gesture({
     fingers = 4,
@@ -210,18 +212,18 @@ hl.gesture({
     action = "fullscreen",
 })
 
-------------------
--- DEVICES
-------------------
+-------------
+-- DEVICES --
+-------------
 
 hl.device({
     name = "elan0788:00-04f3:321a-touchpad",
     sensitivity = -0.125,
 })
 
-------------------
--- KEYBINDINGS
-------------------
+-----------------
+-- KEYBINDINGS --
+-----------------
 
 hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
@@ -233,14 +235,18 @@ hl.bind("CTRL + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("firefox"))
 hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen({ action = "toggle" }))
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("discord"))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("vesktop"))
 hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd("spotify-launcher"))
 hl.bind("XF86Calculator", hl.dsp.exec_cmd("kcalc"))
 hl.bind("XF86Launch2", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call sessionMenu toggle"))
 
+-- Clipboard
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("kitty --class clipse -e clipse"))
+
+-- Emoji Picker
 hl.bind(mainMod .. " + period", hl.dsp.exec_cmd("emote"))
 
+-- Screenshot
 hl.bind("Print", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | dunstify "Screenshot of the region taken" -t 1000]]))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd([[grim - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | dunstify "Screenshot of whole screen taken" -t 1000]]))
 
@@ -279,7 +285,7 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tru
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
 ------------------
--- WINDOW RULES
+-- WINDOW RULES --
 ------------------
 
 hl.window_rule({
@@ -315,9 +321,9 @@ hl.window_rule({
     float = true,
 })
 
-------------------
--- NOCTALIA
-------------------
+--------------
+-- NOCTALIA --
+--------------
 
 -- Convert your noctalia-colors.conf to a Lua module before enabling this.
--- require("noctalia.noctalia-colors")
+require("noctalia.noctalia-colors")
