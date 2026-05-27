@@ -11,5 +11,3 @@ set -g fish_cursor_default underscore
 set -g fish_cursor_insert underscore
 set -g fish_cursor_replace_one underscore
 set -g fish_cursor_visual underscore
-
-set -x ANI_CLI_PLAYER vlc
