@@ -25,7 +25,7 @@ hl.env("XCURSOR_THEME", "LighTech-RE")
 hl.env("XCURSOR_SIZE", "32")
 hl.env("HYPRCURSOR_THEME", "LighTech-RE")
 hl.env("HYPRCURSOR_SIZE", "32")
-
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 ---------------
 -- AUTOSTART --
 ---------------
@@ -47,6 +47,11 @@ end)
 -----------------
 
 hl.config({
+
+	misc = {
+	    focus_on_activate = true,
+	},
+	
     cursor = {
         no_hardware_cursors = 1,
     },
@@ -56,9 +61,9 @@ hl.config({
     },
 
     general = {
-        gaps_in = 1,
-        gaps_out = 2,
-        border_size = 1,
+        gaps_in = 4,
+        gaps_out = 3,
+        border_size = 2,
 
         col = {
             active_border = {
@@ -108,7 +113,7 @@ hl.config({
         kb_rules = "",
 
         follow_mouse = 1,
-        sensitivity = -0.245,
+        sensitivity = -0.345,
         numlock_by_default = true,
 
         touchpad = {
@@ -149,6 +154,11 @@ hl.curve("easeOutQuint", {
     points = { { 0.23, 1 }, { 0.32, 1 } },
 })
 
+hl.curve("easeInOutSine",  {
+	type = "bezier",
+	points = { { 0.37, 0 }, {0.63, 1} },
+})
+
 hl.curve("easeInOutCubic", {
     type = "bezier",
     points = { { 0.65, 0.05 }, { 0.36, 1 } },
@@ -176,23 +186,23 @@ hl.curve("easy", {
     dampening = 15.8273644,
 })
 
-hl.animation({ leaf = "global",        enabled = true, speed = 10,    bezier = "default"                              })
-hl.animation({ leaf = "border",        enabled = true, speed = 5.39,  bezier = "easeOutQuint"                         })
-hl.animation({ leaf = "windows",       enabled = true, speed = 4.79,  spring  = "easy"                                })
-hl.animation({ leaf = "windowsIn",     enabled = true, speed = 4.1,   spring  = "easy",           style = "popin 87%" })
-hl.animation({ leaf = "windowsOut",    enabled = true, speed = 1.49,  bezier = "linear",          style = "popin 87%" })
-hl.animation({ leaf = "fadeIn",        enabled = true, speed = 1.73,  bezier = "almostLinear"                         })
-hl.animation({ leaf = "fadeOut",       enabled = true, speed = 1.46,  bezier = "almostLinear"                         })
-hl.animation({ leaf = "fade",          enabled = true, speed = 3.03,  bezier = "quick"                                })
-hl.animation({ leaf = "layers",        enabled = true, speed = 3.81,  bezier = "easeOutQuint"                         })
-hl.animation({ leaf = "layersIn",      enabled = true, speed = 4,     bezier = "easeOutQuint",   style = "fade"       })
-hl.animation({ leaf = "layersOut",     enabled = true, speed = 1.5,   bezier = "linear",         style = "fade"       })
-hl.animation({ leaf = "fadeLayersIn",  enabled = true, speed = 1.79,  bezier = "almostLinear"                         })
-hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39,  bezier = "almostLinear"                         })
-hl.animation({ leaf = "workspaces",    enabled = true, speed = 1.94,  bezier = "almostLinear",   style = "fade"       })
-hl.animation({ leaf = "workspacesIn",  enabled = true, speed = 1.21,  bezier = "almostLinear",   style = "fade"       })
-hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94,  bezier = "almostLinear",   style = "fade"       })
-hl.animation({ leaf = "zoomFactor",    enabled = true, speed = 7,     bezier = "quick"                                })
+hl.animation({ leaf = "global",        enabled = true, speed = 10,    bezier = "default"                               })
+hl.animation({ leaf = "border",        enabled = true, speed = 5.39,  bezier = "easeOutQuint"                          })
+hl.animation({ leaf = "windows",       enabled = true, speed = 4.79,  spring = "easy",                                 })
+hl.animation({ leaf = "windowsIn",     enabled = true, speed = 8.1,   spring = "easy",            style = "slide"      })
+hl.animation({ leaf = "windowsOut",    enabled = true, speed = 1.49,  bezier = "almostLinear",    style = "slide"      })
+hl.animation({ leaf = "fadeIn",        enabled = true, speed = 1.73,  bezier = "almostLinear"                          })
+hl.animation({ leaf = "fadeOut",       enabled = true, speed = 1.46,  bezier = "almostLinear"                          })
+hl.animation({ leaf = "fade",          enabled = true, speed = 3.03,  bezier = "quick"                                 })
+hl.animation({ leaf = "layers",        enabled = true, speed = 3.81,  bezier = "easeOutQuint"                          })
+hl.animation({ leaf = "layersIn",      enabled = true, speed = 4,     bezier = "easeOutQuint",    style = "fade"       })
+hl.animation({ leaf = "layersOut",     enabled = true, speed = 1.5,   bezier = "linear",          style = "fade"       })
+hl.animation({ leaf = "fadeLayersIn",  enabled = true, speed = 1.79,  bezier = "almostLinear"                          })
+hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39,  bezier = "almostLinear"                          })
+hl.animation({ leaf = "workspaces",    enabled = true, speed = 1.94,  bezier = "easeInOutSine",   style = "fade"       })
+hl.animation({ leaf = "workspacesIn",  enabled = true, speed = 1.41,  bezier = "easeInOutSine",   style = "fade"       })
+hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94,  bezier = "easeInOutSine",   style = "fade"       })
+hl.animation({ leaf = "zoomFactor",    enabled = true, speed = 7,     bezier = "quick"                                 })
 
 --------------
 -- GESTURES --
@@ -224,21 +234,26 @@ hl.device({
 -----------------
 -- KEYBINDINGS --
 -----------------
-
+hl.bind("CTRL + SHIFT + B", hl.dsp.exec_cmd("kitty -e btop"))
 hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind("CTRL + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind("Menu", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call launcher toggle"))
 
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
-hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("firefox"))
+hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("zen-browser"))
 hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("vesktop"))
-hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd("spotify-launcher"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("spotify-launcher"))
 hl.bind("XF86Calculator", hl.dsp.exec_cmd("kcalc"))
 hl.bind("XF86Launch2", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call sessionMenu toggle"))
+
+
+
+
 
 -- Clipboard
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("kitty --class clipse -e clipse"))
@@ -263,8 +278,8 @@ end
 hl.bind(mainMod .. " + 0", hl.dsp.focus({ workspace = 10 }))
 hl.bind(mainMod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
 
-hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+-- hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
+-- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
@@ -324,6 +339,47 @@ hl.window_rule({
 --------------
 -- NOCTALIA --
 --------------
+local colors_path = os.getenv("HOME") .. "/.config/hypr/noctalia/noctalia-colors.conf"
+local file = io.open(colors_path, "r")
+local c = {} 
 
--- Convert your noctalia-colors.conf to a Lua module before enabling this.
-require("noctalia.noctalia-colors")
+if file then
+    for line in file:lines() do
+        local var_name, hex = line:match("%$([%w_]+)%s*=%s*rgb%((%w+)%)")      
+        if var_name and hex then
+            c[var_name] = "rgb(" .. hex .. ")"
+        end
+    end
+    file:close()
+else
+    print("Did not find noctalia file")
+end
+
+if c.primary then
+    hl.config({
+        general = {
+            col = {
+                active_border   = c.primary,
+                inactive_border = c.surface,
+            }
+        },
+        
+        group = {
+            col = {
+                border_active          = c.secondary,
+                border_inactive        = c.surface,
+                border_locked_active   = c.error,
+                border_locked_inactive = c.surface,
+            },
+            
+            groupbar = {
+                col = {
+                    active          = c.secondary,
+                    inactive        = c.surface,
+                    locked_active   = c.error,
+                    locked_inactive = c.surface,
+                }
+            }
+        }
+    })
+end
