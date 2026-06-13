@@ -5,7 +5,7 @@
 local terminal = "kitty"
 local fileManager = "dolphin"
 local mainMod = "SUPER"
-
+local noctCall = "qs -c noctalia-shell ipc call "
 --------------
 -- MONITORS --
 --------------
@@ -20,26 +20,27 @@ hl.monitor({
 -----------------
 -- ENVIRONMENT --
 -----------------
-
-hl.env("XCURSOR_THEME", "LighTech-RE")
-hl.env("XCURSOR_SIZE", "32")
-hl.env("HYPRCURSOR_THEME", "LighTech-RE")
-hl.env("HYPRCURSOR_SIZE", "32")
-hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+--
+-- NOW MANAGED THROUGH `~.config/uwsm/env`
+-- 
+-- hl.env("XCURSOR_THEME", "LighTech-RE")
+-- hl.env("XCURSOR_SIZE", "32")
+-- hl.env("HYPRCURSOR_THEME", "LighTech-RE")
+-- hl.env("HYPRCURSOR_SIZE", "32")
+-- hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 ---------------
 -- AUTOSTART --
 ---------------
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("clipse -listen")
-    hl.exec_cmd("qs -c noctalia-shell")
-    hl.exec_cmd("numlockx on")
-    hl.exec_cmd("easyeffects")
-    hl.exec_cmd("vesktop")
-    hl.exec_cmd("hyprctl setcursor LighTech-RE 24")
-    hl.exec_cmd("/opt/abdownloadmanager/bin/ABDownloadManager --background")
-    hl.exec_cmd("wl-paste --type text --watch cliphist store")
-    hl.exec_cmd("wl-paste --type image --watch cliphist store")
+    hl.exec_cmd("systemctl --user start plasma-polkit-agent")
+    hl.exec_cmd("uwsm app -- qs -c noctalia-shell")
+    hl.exec_cmd("uwsm app -- clipse -listen")
+    hl.exec_cmd("uwsm app -- easyeffects --daemon")
+    hl.exec_cmd(noctCall .. "vesktop")
+    hl.exec_cmd(noctCall .. "/opt/abdownloadmanager/bin/ABDownloadManager --background")
+    hl.exec_cmd("uwsm app -- wl-paste --type text --watch cliphist store")
+    hl.exec_cmd("uwsm app -- wl-paste --type image --watch cliphist store")
 end)
 
 -----------------
@@ -234,36 +235,33 @@ hl.device({
 -----------------
 -- KEYBINDINGS --
 -----------------
-hl.bind("CTRL + SHIFT + B", hl.dsp.exec_cmd("kitty -e btop"))
-hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd(terminal))
+hl.bind("CTRL + SHIFT + B", hl.dsp.exec_cmd("uwsm app -- kitty -e btop"))
+hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd("uwsm app -- " .. terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("uwsm stop"))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("uwsm app -- " .. fileManager))
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind("CTRL + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
-hl.bind("Menu", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call launcher toggle"))
+hl.bind("CTRL + SPACE", hl.dsp.exec_cmd("uwsm app -- rofi -show drun"))
+hl.bind("Menu", hl.dsp.exec_cmd(noctCall .. "launcher toggle"))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(noctCall .. " lockScreen lock"))
 
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
-hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("zen-browser"))
+hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("uwsm app -- zen-browser"))
 hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen({ action = "toggle" }))
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("vesktop"))
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("spotify-launcher"))
-hl.bind("XF86Calculator", hl.dsp.exec_cmd("kcalc"))
-hl.bind("XF86Launch2", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call sessionMenu toggle"))
-
-
-
-
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("uwsm app -- vesktop"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("uwsm app -- spotify-launcher"))
+hl.bind("XF86Calculator", hl.dsp.exec_cmd("uwsm app -- kcalc"))
+hl.bind("XF86Launch2", hl.dsp.exec_cmd(noctCall .. "sessionMenu toggle"))
 
 -- Clipboard
-hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("kitty --class clipse -e clipse"))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("uwsm app -- kitty --class clipse -e clipse"))
 
 -- Emoji Picker
-hl.bind(mainMod .. " + period", hl.dsp.exec_cmd("emote"))
+hl.bind(mainMod .. " + period", hl.dsp.exec_cmd("uwsm app -- emote"))
 
 -- Screenshot
-hl.bind("Print", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | dunstify "Screenshot of the region taken" -t 1000]]))
-hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd([[grim - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | dunstify "Screenshot of whole screen taken" -t 1000]]))
+hl.bind("Print", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | dunstify "Partial Screenshot captured" -t 700]]))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd([[grim - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | dunstify "Screenshot captured" -t 700]]))
 
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
@@ -281,8 +279,8 @@ hl.bind(mainMod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
 -- hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
 -- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e+1" }))
 
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
@@ -298,7 +296,6 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
-
 ------------------
 -- WINDOW RULES --
 ------------------
@@ -310,6 +307,12 @@ hl.window_rule({
     size = { 920, 650 },
 })
 
+hl.window_rule({ 
+   match = { class = "org.kde.kcalc" },
+   float = true,
+   
+})
+   
 hl.window_rule({
     name = "suppress-maximize-events",
     match = { class = ".*" },
