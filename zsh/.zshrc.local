@@ -1,0 +1,10 @@
+[[ -r ~/.aliases_zsh ]] && source ~/.aliases_zsh
+
+gpp() {
+    local out="${1%.cpp}"
+    g++ -std=c++26 -O3 -Wall "$1" -o "$out" && "./$out"
+}
+
+typeset -U path PATH
+path+=("$HOME/.spicetify")
+export PATH
