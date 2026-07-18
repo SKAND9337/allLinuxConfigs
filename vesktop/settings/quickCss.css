@@ -1,0 +1,52 @@
+.clickable__13533[aria-selected=true] .base__13533 {
+  background-color: #dc4f69 !important;
+}
+ 
+ 
+.base__13533:hover {
+  background-color: #dc4f69 !important;
+}
+
+/*Back/Forward Buttons*/
+.backForwardButtons__63abb {
+  display: none;
+}
+
+/* rotating oscillate animation */
+@keyframes continuous-oscillate-rotate {
+  0% {
+    transform:rotate(0deg);
+  }
+  100% {
+    transform:rotate(360deg);
+  }
+}
+
+
+/* Rounding Off The Outer Edges Of The Nameplate */
+.visual-refresh .container__37e49 {
+    border-radius: 10px;
+}
+
+/* remove grabber from music player */
+.grabber_a562c8 {
+  visibility: hidden;
+}
+
+/*
+  Makes the VenCord plugin's Shiki Code Blocks transparent
+*/
+.vc-shiki-container {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* channel */
+.name__2ea32 {
+    font-size: 17px;
+}
+
+/* status */
+.text-sm\/normal_cf4812 {
+  font-size: 15px;
+}
+

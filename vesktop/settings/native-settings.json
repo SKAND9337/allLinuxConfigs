@@ -1,0 +1,11 @@
+{
+    "plugins": {},
+    "customCspRules": {
+        "allthings.how": [
+            "connect-src",
+            "img-src",
+            "style-src",
+            "font-src"
+        ]
+    }
+}

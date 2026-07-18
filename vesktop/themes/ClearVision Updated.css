@@ -1,0 +1,356 @@
+/**
+ * @name ClearVision V7 for BetterDiscord
+ * @author ClearVision Team
+ * @version 7.0.0
+ * @description Highly customizable theme for BetterDiscord.
+ * @source https://github.com/ClearVision/ClearVision-v7
+ * @website https://clearvision.github.io
+ * @invite dHaSxn3
+ */
+/* IMPORT CSS */
+@import url("https://clearvision.github.io/ClearVision-v7/main.css");
+@import url("https://clearvision.github.io/ClearVision-v7/vencord.css");
+@import url('https://discordstyles.github.io/RadialStatus/RadialStatus.css');
+@import url('https://fonts.googleapis.com/css2?family=quicksand:wght@100;300;400;500;700&display=swap');
+
+/* SETTINGS */
+:root {
+  /* ACCENT COLORS */
+  --main-color: #DC4F69;
+  --hover-color: #79E158;
+  --success-color: #38F19C;
+  --danger-color: #E10505;
+  /* STATUS COLORS */
+  --online-color: #33FF31;
+  --idle-color: #900bc8;
+  --dnd-color: #F80E0E;
+  --streaming-color: #5c4e75;
+  --offline-color: #8D8D8D;
+  /* APP BACKGROUND */
+  --background-shading-percent: 100%;
+  --background-image: url(https://i.pinimg.com/736x/81/80/8e/81808e28dadfdfb531dff9bb4536d976.jpg);
+  --background-attachment: fixed;
+  --background-filter:
+    saturate(calc(var(--saturation-factor, 1))) brightness(1.85);
+  /* USER POPOUT BACKGROUND */
+  --user-popout-image: var(--background-image);
+  --user-popout-attachment: var(--background-attachment);
+  --user-popout-filter: var(--background-filter);
+  /* USER MODAL BACKGROUND */
+  --user-modal-image: var(--background-image);
+  --user-modal-attachment: var(--background-attachment);
+  --user-modal-filter: var(--background-filter);
+  /* HOME ICON */
+  --home-icon: url(data:image/png;base64,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);
+  --home-size: 42.5px;
+  /* FONTS */
+  --main-font: "Quicksand", Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --code-font: Consolas, "Quicksand", "Quicksand", Menlo, Courier, monospace;
+
+  /* Link text */
+  --url-color: #46FFF4;
+
+  --rs-small-spacing: 2.5px;
+  --rs-medium-spacing: 2.5px;
+  --rs-large-spacing: 2px;
+  --rs-small-width: 2.0px;
+  --rs-medium-width: 2.0px;
+  --rs-large-width: 2.0px;
+  --rs-avatar-shape: 100%;
+  --rs-online-color: #33FF31;
+  --rs-idle-color: #900bc8;
+  --rs-dnd-color: #F80E0E;
+  --rs-offline-color: #8D8D8D;
+  --rs-streaming-color: #625775;
+  --rs-phone-visible: block;
+  /* Channel Colors */
+  --channel-unread: #65FF4E;
+  /* More options.... */
+  --channel-color: rgb(255, 255, 255, 1);
+  --channel-muted: rgb(182, 182, 182, 1);
+  --channel-default: rgb(255, 255, 255, 1);
+}
+
+/* THEME SPECIFIC SHADING */
+/* LIGHT THEME 
+:is(.theme-light, .theme-dark .theme-light) {
+  --background-shading: rgba(252, 252, 252, 0.3);
+  --card-shading: rgba(252, 252, 252, 0.3);
+  --popout-shading: rgba(252, 252, 252, 0.7);
+  --modal-shading: rgba(252, 252, 252, 0.5);
+  --input-shading: rgba(0, 0, 0, 0.3);
+  --normal-text: #36363c;
+  --muted-text: #75757e;
+}*/
+
+/* ASH THEME 
+:is(.theme-dark, .theme-light .theme-dark) {
+  --background-shading: rgba(0, 0, 0, 0.4);
+  --card-shading: rgba(0, 0, 0, 0.2);
+  --popout-shading: rgba(0, 0, 0, 0.6);
+  --modal-shading: rgba(0, 0, 0, 0.4);
+  --input-shading: rgba(255, 255, 255, 0.05);
+  --normal-text: #d8d8db;
+  --muted-text: #aeaeb4;
+}*/
+
+/* DARK THEME */
+:is(.theme-darker, .theme-light .theme-darker) {
+  --background-shading: rgba(0, 0, 0, 0.6);
+  --card-shading: rgba(0, 0, 0, 0.3);
+  --popout-shading: rgba(0, 0, 0, 0.7);
+  --modal-shading: rgba(0, 0, 0, 0.5);
+  --input-shading: rgba(255, 255, 255, 0.05);
+  --normal-text: #fbfbfb;
+  --muted-text: #94949c;
+}
+
+/* ONYX THEME 
+:is(.theme-midnight, .theme-light .theme-midnight) {
+  --background-shading: rgba(0, 0, 0, 0.8);
+  --card-shading: rgba(0, 0, 0, 0.4);
+  --popout-shading: rgba(0, 0, 0, 0.8);
+  --modal-shading: rgba(0, 0, 0, 0.6);
+  --input-shading: rgba(255, 255, 255, 0.05);
+  --normal-text: #dcdcde;
+  --muted-text: #86868e;
+}*/
+
+/* ADD ADDITIONAL CSS BELOW HERE */
+
+:where(._68edb95846a37624-banner:not([style*="background-image"])) {
+  background: none !important;
+}
+
+.c0bea05627c5dc35-outer:not(.custom-profile-theme) .c0bea05627c5dc35-inner {
+  background: rgba(0, 0, 0, 0.712) !important;
+}
+
+.clickable__13533[aria-selected=true] .base__13533 {
+  background-color: #dc4f69 !important;
+}
+
+.base__13533:hover {
+  background-color: #dc4f69 !important;
+}
+
+/*Back/Forward Buttons*/
+.backForwardButtons__63abb {
+  display: none;
+}
+
+/* rotating oscillate animation */
+@keyframes continuous-oscillate-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Rounding Off The Outer Edges Of The Nameplate */
+.visual-refresh .container__37e49 {
+  border-radius: 10px;
+}
+
+/* remove grabber from music player */
+.grabber_a562c8 {
+  visibility: hidden;
+}
+
+/*
+  Makes the VenCord plugin's Shiki Code Blocks transparent
+*/
+.vc-shiki-container {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.rolePopout__75297 {
+  background: rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--elevation-high);
+  overflow: hidden;
+}
+
+/* 2. Inner Scroller: Remove background and border to fix "double frame" */
+.roleScroller__75297 {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* 3. Members & Hover: Basic styling */
+.member__5d473.container__91a9d {
+  margin: 2px 8px;
+  border-radius: 4px;
+}
+
+.member__5d473.container__91a9d:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* 4. Scrollbar: Keep it thin and themed */
+.roleScroller__75297::-webkit-scrollbar {
+  width: 4px;
+}
+
+.roleScroller__75297::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 10px;
+}
+
+/* 1. Global Glass Effect for Dropdowns, Menus, Search, and Popouts */
+[role="menu"],
+div[class^="menu_"],
+div[class^="searchPopout_"],
+div[class^="messagesPopoutWrap_"],
+div[class^="recentMentionsPopout_"],
+div[class^="browser_"],
+div[class^="popout_"] {
+  background: rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: var(--radius-sm, 8px) !important;
+  box-shadow: var(--elevation-high) !important;
+}
+
+/* 2. Remove Internal Backgrounds to Fix "Double Frame" */
+/* This targets the inner scrollers of all the above elements */
+[role="menu"] [class^="scroller_"],
+div[class^="searchPopout_"] [class^="scroller_"],
+div[class^="messagesPopoutWrap_"] [class^="scroller_"],
+div[class^="recentMentionsPopout_"] [class^="scroller_"],
+div[class^="popout_"] [class^="scroller_"] {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Fix inner headers/footers in pinned messages and inbox */
+div[class^="messagesPopoutWrap_"] [class^="header_"],
+div[class^="recentMentionsPopout_"] [class^="header_"],
+div[class^="messagesPopoutWrap_"] [class^="footer_"] {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* 3. Hover Effects for Menu Items & Search Results */
+/* Right-click menu items */
+[role="menu"] [class^="item_"]:hover,
+[role="menu"] [class^="item_"][class*="focused_"] {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Search popout options */
+div[class^="searchPopout_"] [class^="option_"]:hover,
+div[class^="searchPopout_"] [class*="focused_"] {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Remove default background from search results groups */
+div[class^="searchPopout_"] [class^="resultsGroup_"] {
+  background: transparent !important;
+}
+
+/* Pinned messages and inbox message hover */
+div[class^="messagesPopoutWrap_"] [class^="messageGroupWrapper_"]:hover,
+div[class^="recentMentionsPopout_"] [class^="channelHeader_"]:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Fix for the new Pinned Messages card layout */
+div[class^="messagesPopoutWrap_"] div[class^="messageGroupWrapper_"] {
+  background: rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Fix for the new Inbox / Mentions card layout */
+div[class^="recentMentionsPopout_"] div[class^="container_"],
+div[class^="recentMentionsPopout_"] [class^="channelHeader_"] {
+  background: rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Optional: Subtle hover effect for the inbox cards so they feel interactive */
+div[class^="recentMentionsPopout_"] div[class^="container_"]:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* --- Frosty Glass Fix for Server Popouts & Tooltips --- */
+div[class*="guildPopout"],
+div[class*="tooltip_"],
+div[role="tooltip"] {
+  background: rgba(0, 0, 0, 0.20) !important;
+  /* Keep the visible channel preview blurred even when Discord updates its classes. */
+  backdrop-filter: blur(8px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(120%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: var(--elevation-high) !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Frosted glass for channel preview popouts and hover surfaces */
+:is(div[class*="guildPopout"], div[class*="tooltip_"], div[role="tooltip"]) div[class*="popout_"][class*="layer"],
+:is(div[class*="guildPopout"], div[class*="tooltip_"], div[role="tooltip"]) div[class*="hover"] {
+  background: rgba(0, 0, 0, 0.20) !important;
+  /* Keep the blur on the visible surface through Discord's class updates. */
+  backdrop-filter: blur(8px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(120%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: var(--radius-sm, 8px);
+  box-shadow: var(--elevation-high);
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Make sure the little pointer arrow matches the new glassy background */
+div[class*="tooltipPointer_"] {
+  border-top-color: var(--popout-shading) !important;
+}
+
+/* --- Frosty Glass for Vencord Spotify Controls --- */
+#vc-spotify-player,
+.vc-spotify-player {
+  /* The blur and glass color */
+  background: rgba(0, 0, 0, 0.2) !important;
+  background-color: transparent !important; 
+  backdrop-filter: blur(8px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(120%) !important;
+  
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: var(--radius-sm, 8px) !important;
+  box-shadow: var(--elevation-high) !important;
+  
+  /* THE FIX: Remove side margins and force full width */
+  margin: 0 0px 6px 0px !important; 
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+#vc-spotify-player:hover,
+.vc-spotify-player:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+
+#vc-spotify-player [class^="container_"],
+.vc-spotify-player [class^="container_"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* Aggressively target ANY direct parent wrapping the player */
+div:has(> #vc-spotify-player),
+section:has(> #vc-spotify-player),
+div:has(> .vc-spotify-player),
+section:has(> .vc-spotify-player) {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important; /* Ensures the wrapper isn't adding invisible padding */
+}

@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@100;300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@100;300;400;500;700&display=swap');
+@import url('https://clearvision.github.io/ClearVision-v6/main.css');
+
+:root {
+  --main-color: #DC4F69;
+  --hover-color: #79E158;
+  --success-color: #38F19C;
+  --danger-color: #E10505;
+  --url-color: #46FFF4;
+  --background-image: url('https://i.pinimg.com/736x/81/80/8e/81808e28dadfdfb531dff9bb4536d976.jpg');
+  --background-shading: 100%;
+  --background-position: center;
+  --background-size: cover;
+  --background-repeat: no-repeat;
+  --background-attachment: fixed;
+  --background-brightness: 155%;
+  --background-contrast: 100%;
+  --background-saturation: 130%;
+  --background-grayscale: 0%;
+  --background-invert: 0%;
+  --background-blur: 0px;
+  --background-overlay: rgba(0,0,0,0.6);
+  /* --user-popout-image: url('https://images4.alphacoders.com/136/1363457.jpeg'); */
+  --user-popout-position: Bottom center;
+  --user-popout-size: cover;
+  --user-popout-repeat: no-repeat;
+  --user-popout-attachment: fixed;
+  --user-popout-brightness: 100%;
+  --user-popout-contrast: 100%;
+  --user-popout-saturation: 100%;
+  --user-popout-grayscale: 0%;
+  --user-popout-invert: 0%;
+  --user-popout-blur: 5px;
+  --user-modal-image: url('https://i.pinimg.com/originals/e1/4f/ee/e14feed58d5dbfef08d88f66193a591a.jpg');
+  --user-modal-position: center;
+  --user-modal-size: cover;
+  --user-modal-repeat: no-repeat;
+  --user-modal-attachment: fixed;
+  --user-modal-brightness: 100%;
+  --user-modal-contrast: 100%;
+  --user-modal-saturation: 100%;
+  --user-modal-grayscale: 0%;
+  --user-modal-invert: 0%;
+  --user-modal-blur: 3px;
+  --home-icon: url('https://allthings.how/content/images/wordpress/2020/09/allthings.how-how-to-create-an-aesthetic-iphone-home-screen-with-custom-app-icons-and-photo-widgets-discord-neon-aesthetic-2.png');
+  --home-position: center;
+  --home-size: 44px;
+  --channel-unread: #65FF4E;
+  --channel-color: rgb(255,255,255,1);
+  --muted-color: rgb(182,182,182,1);
+  --online-color: #33FF31;
+  --idle-color: #FFE67E;
+  --dnd-color: #F80E0E;
+  --streaming-color: #625775;
+  --offline-color: #8D8D8D;
+  --main-font: Quicksand;
+  --code-font: Quicksand;
+  --channels-width: 220px;
+  --members-width: 240px;
+  --backdrop-overlay: rgba(0,0,0,0.8);
+  --backdrop-image: var(--background-image);
+  --backdrop-position: var(--background-position);
+  --backdrop-size: var(--background-size);
+  --backdrop-repeat: var(--background-repeat);
+  --backdrop-attachment: var(--background-attachment);
+  --backdrop-brightness: var(--background-brightness);
+  --backdrop-contrast: var(--background-contrast);
+  --backdrop-saturation: var(--background-saturation);
+  --backdrop-invert: var(--background-invert);
+  --backdrop-grayscale: var(--background-grayscale);
+  --backdrop-sepia: var(--background-sepia);
+  --backdrop-blur: var(--background-blur);
+  --bd-blue: var(--main-color);
+  --bd-blue-hover: var(--hover-color);
+  --bd-blue-active: var(--hover-color);
+  --rs-small-spacing: 0px;
+  --rs-medium-spacing: 0px;
+  --rs-large-spacing: 0px;
+  --rs-small-width: 1.5px;
+  --rs-medium-width: 2px;
+  --rs-large-width: 2px;
+  --rs-avatar-shape: 50%;
+  --rs-online-color: #49FF68;
+  --rs-idle-color: #ECC44C;
+  --rs-dnd-color: #E32525;
+  --rs-offline-color: #929292;
+  --rs-streaming-color: #7D49D5;
+  --rs-phone-visible: block;
+}
+
+/* Any custom CSS below here */
+
+
+span[class*="timestampInline_"] time::before {
+
+  content: attr(aria-label);
+  font-size: 12px;
+}
+
+span[class*="timestampInline_"] {
+  font-size: 0px  !important;
+}
