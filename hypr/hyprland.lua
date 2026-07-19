@@ -1,6 +1,7 @@
-
+------------------------------
 -- File From:
 -- ~/.config/hypr/hyprland.lua
+------------------------------
 
 local terminal = "kitty"
 local fileManager = "dolphin"
@@ -28,17 +29,19 @@ hl.monitor({
 -- hl.env("HYPRCURSOR_THEME", "LighTech-RE")
 -- hl.env("HYPRCURSOR_SIZE", "32")
 -- hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+
 ---------------
 -- AUTOSTART --
 ---------------
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("systemctl --user start plasma-polkit-agent")
+    -- hl.exec_cmd("noctalia")
     hl.exec_cmd("uwsm app -- qs -c noctalia-shell")
     hl.exec_cmd("uwsm app -- clipse -listen")
     hl.exec_cmd("uwsm app -- easyeffects --daemon")
-    hl.exec_cmd(noctCall .. "vesktop")
-    hl.exec_cmd(noctCall .. "/opt/abdownloadmanager/bin/ABDownloadManager --background")
+    hl.exec_cmd("uwsm app -- vesktop")
+    hl.exec_cmd("uwsm app -- /opt/abdownloadmanager/bin/ABDownloadManager --background")
     hl.exec_cmd("uwsm app -- wl-paste --type text --watch cliphist store")
     hl.exec_cmd("uwsm app -- wl-paste --type image --watch cliphist store")
 end)
@@ -95,10 +98,10 @@ hl.config({
 
         blur = {
             enabled = true,
-            size = 4,
-            passes = 2,
-            vibrancy = 0.25,
-            contrast = 0.5,
+            size = 5,
+            passes = 3,
+            vibrancy = 3.25,
+            contrast = 0.75,
         },
     },
 
@@ -242,14 +245,16 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("uwsm stop"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("uwsm app -- " .. fileManager))
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind("CTRL + SPACE", hl.dsp.exec_cmd("uwsm app -- rofi -show drun"))
-hl.bind("Menu", hl.dsp.exec_cmd(noctCall .. "launcher toggle"))
+hl.bind(mainMod .. " + CTRL + U", hl.dsp.exec_cmd("/home/skand/.local/bin/free-dictionary-rofi.py"))
+hl.bind(mainMod .. " + SHIFT + U", hl.dsp.exec_cmd("~/.local/bin/urban-rofi"))
+hl.bind("Alt_R", hl.dsp.exec_cmd(noctCall .. "launcher toggle"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(noctCall .. " lockScreen lock"))
 
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("uwsm app -- zen-browser"))
 hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("uwsm app -- vesktop"))
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("uwsm app -- spotify-launcher"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("uwsm app -- spotify"))
 hl.bind("XF86Calculator", hl.dsp.exec_cmd("uwsm app -- kcalc"))
 hl.bind("XF86Launch2", hl.dsp.exec_cmd(noctCall .. "sessionMenu toggle"))
 
@@ -259,9 +264,27 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("uwsm app -- kitty --class clipse -e 
 -- Emoji Picker
 hl.bind(mainMod .. " + period", hl.dsp.exec_cmd("uwsm app -- emote"))
 
--- Screenshot
-hl.bind("Print", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | dunstify "Partial Screenshot captured" -t 700]]))
-hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd([[grim - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | dunstify "Screenshot captured" -t 700]]))
+-- PARTIAL Screenshot
+hl.bind("Print", hl.dsp.exec_cmd([[
+flameshot gui --raw | wl-copy &&
+wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png &&
+(
+    if ! hyprctl activewindow -j | jq -e '.fullscreen != 0' >/dev/null; then
+        dunstify "Partial Screenshot captured" -t 700
+    fi
+)
+]]))
+
+-- FULL Screenshot 
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd([[
+flameshot full --raw | wl-copy &&
+wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png &&
+(
+    if ! hyprctl activewindow -j | jq -e '.fullscreen != 0' >/dev/null; then
+        dunstify "Screenshot captured" -t 700
+    fi
+)
+]]))
 
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
@@ -272,7 +295,6 @@ for i = 1, 9 do
     hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = i }))
     hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
-
 hl.bind(mainMod .. " + 0", hl.dsp.focus({ workspace = 10 }))
 hl.bind(mainMod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
 
@@ -296,6 +318,7 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+
 ------------------
 -- WINDOW RULES --
 ------------------
@@ -386,3 +409,6 @@ if c.primary then
         }
     })
 end
+
+-- For Noctalia Color templates
+require("noctalia").apply_theme()
