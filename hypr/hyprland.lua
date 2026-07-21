@@ -411,6 +411,3 @@ if c.primary then
         }
     })
 end
-
--- For Noctalia Color templates
-require("noctalia").apply_theme()
