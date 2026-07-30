@@ -83,7 +83,7 @@ hl.config({
     },
 
     decoration = {
-        rounding = 9,
+        rounding = 8,
         rounding_power = 2,
 
         active_opacity = 0.91,
@@ -100,7 +100,7 @@ hl.config({
             enabled = true,
             size = 5,
             passes = 3,
-            vibrancy = 3.25,
+            vibrancy = 0.35,
             contrast = 0.75,
         },
     },
@@ -303,8 +303,8 @@ hl.bind(mainMod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
 -- hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
 -- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind("mouse:276", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind("mouse:275", hl.dsp.focus({ workspace = "e-1" }))
 
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
@@ -313,8 +313,8 @@ hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd([[sh -c 'brightnessctl -n2 set 5%+']]), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd([[sh -c 'brightnessctl -n2 set 5%-']]), { locked = true, repeating = true })
 
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
@@ -335,7 +335,11 @@ hl.window_rule({
 hl.window_rule({ 
    match = { class = "org.kde.kcalc" },
    float = true,
-   
+})
+
+hl.window_rule({ 
+   match = { class = "flameshot" },
+   float = true,
 })
    
 hl.window_rule({
@@ -363,6 +367,7 @@ hl.window_rule({
     move = { 20, "monitor_h-120" },
     float = true,
 })
+
 
 --------------
 -- NOCTALIA --
