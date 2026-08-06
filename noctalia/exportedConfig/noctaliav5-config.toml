@@ -1,0 +1,455 @@
+[accessibility]
+ui_scale = 1.2500000111758709
+
+[audio]
+enable_sounds = true
+sound_volume = 0.39999999105930328
+
+[bar]
+order = [ "Main" ]
+
+    [bar.Main]
+    auto_hide = true
+    background_opacity = 0.24999999441206455
+    border = "primary"
+    border_width = 2.0
+    capsule = true
+    capsule_border = "on_hover"
+    capsule_foreground = "primary"
+    capsule_opacity = 0.39999999105930328
+    capsule_radius = 9
+    capsule_thickness = 0.74999998696148396
+    center = [ "launcher", "workspaces", "widget" ]
+    contact_shadow = true
+    end = [ "notifications", "network", "volume", "battery", "bluetooth", "control-center", "session" ]
+    font_family = "Geist Mono"
+    font_weight = 600
+    layer = "overlay"
+    margin_edge = 4
+    margin_ends = 7
+    padding = 15
+    radius = 15
+    reserve_space = false
+    scale = 1.4500000141561031
+    start = [ "tracker", "wallpaper", "tray", "media" ]
+    thickness = 53
+    widget_spacing = 7
+
+        [bar.Main.dead_zone.actions]
+        scroll_down = "volume-down 5"
+        scroll_up = "volume-up 5"
+
+[battery]
+warning_threshold = 25
+
+[brightness]
+minimum_brightness = 0.99999997764825821
+
+[config]
+
+[control_center]
+hidden_tabs = [ "monitor", "power" ]
+width = 680
+
+    [control_center.calendar]
+    show_events_card = false
+
+    [[control_center.shortcuts]]
+    type = "wifi"
+
+    [[control_center.shortcuts]]
+    type = "power_profile"
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+    [[control_center.shortcuts]]
+    type = "media"
+
+    [[control_center.shortcuts]]
+    type = "system"
+
+    [[control_center.shortcuts]]
+    type = "weather"
+
+[desktop_widgets]
+schema_version = 2
+widget_order = [
+    "desktop-widget-0000000000000001",
+    "desktop-widget-0000000000000002",
+    "desktop-widget-0000000000000003",
+    "desktop-widget-0000000000000004",
+    "desktop-widget-0000000000000005",
+    "desktop-widget-0000000000000006"
+]
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000001]
+    box_height = 608.0
+    box_width = 608.0
+    cx = 960.0
+    cy = 684.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "fancy_audio_visualizer"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
+        background = false
+        bar_width = 0.69999999999999996
+        bloom_intensity = 0.70000000000000007
+        inner_diameter = 0.40000000000000002
+        ring_opacity = 0.0
+        rotation_speed = 0.30000000000000004
+        sensitivity = 1.3999999999999999
+        visualization_mode = "all"
+        wave_thickness = 0.80000000000000004
+
+    [desktop_widgets.widget.desktop-widget-0000000000000002]
+    box_height = 160.0
+    box_width = 432.0
+    cx = 1608.0
+    cy = 460.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "clock"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
+        background_opacity = 0.25
+        background_padding = 5
+        background_radius = 24
+        format = "{:%H:%M:%S}"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000003]
+    box_height = 224.0
+    box_width = 608.0
+    cx = 352.0
+    cy = 884.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "media_player"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000003.settings]
+        background_opacity = 0.25
+        background_padding = 6
+        background_radius = 24
+        hide_when_no_media = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000004]
+    box_height = 272.0
+    box_width = 512.0
+    cx = 1616.0
+    cy = 860.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "sysmon"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000004.settings]
+        background_opacity = 0.25
+        background_padding = 5
+        background_radius = 24
+        stat = "cpu_usage"
+        stat2 = "cpu_temp"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000005]
+    box_height = 160.0
+    box_width = 240.0
+    cx = 1752.0
+    cy = 636.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "weather"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000005.settings]
+        background_opacity = 0.25
+        background_padding = 1
+        background_radius = 24
+
+    [desktop_widgets.widget.desktop-widget-0000000000000006]
+    box_height = 160.0
+    box_width = 240.0
+    cx = 1480.0
+    cy = 636.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "volume"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000006.settings]
+        background_opacity = 0.25
+        background_padding = 6
+        background_radius = 24
+        scroll_step = 2
+
+[dock]
+active_scale = 1.1000000163912773
+auto_hide = true
+background_opacity = 0.0
+border_width = 2.0
+cross_axis_padding = 7
+enabled = true
+icon_size = 52
+inactive_opacity = 0.669999985024333
+item_spacing = 14
+launcher_custom_image = "/home/skand/Desktop/SKAND/CACHY_PINK.png"
+launcher_position = "end"
+layer = "overlay"
+magnification_scale = 1.6000000089406967
+main_axis_padding = 15
+margin_edge = 10
+pinned = [ "code", "org.kde.dolphin", "zen", "spotify", "vesktop" ]
+radius = 24
+reserve_space = false
+show_dots = true
+
+[hot_corners.top_left]
+action = "window_switcher"
+
+[location]
+address = "Bhopal, India"
+
+[lockscreen]
+blur_intensity = 0.57999998703598976
+fingerprint = false
+tint_intensity = 0.36999999172985554
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [
+    "lockscreen-login-box@eDP-1",
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000002",
+    "lockscreen-widget-0000000000000003"
+]
+
+    [lockscreen_widgets.grid]
+    cell_size = 32
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 1056.0
+    cx = 1328.0
+    cy = 938.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 128.0
+    box_width = 320.0
+    cx = 1696.0
+    cy = 716.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "clock"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 128.0
+    box_width = 320.0
+    cx = 1328.0
+    cy = 716.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "audio_visualizer"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        bands = 32
+        show_when_idle = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+    box_height = 128.0
+    box_width = 320.0
+    cx = 960.0
+    cy = 716.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "weather"
+
+[notification]
+background_opacity = 0.68999998457729816
+offset_x = 15
+offset_y = 7
+scale = 0.90000000596046448
+
+[osd]
+background_opacity = 0.24999999441206455
+offset_y = 80
+position = "bottom_center"
+scale = 1.1000000089406967
+
+[plugin_settings."cleboost/anilist"]
+client_id = "47970"
+client_secret = "D7ci88H8su0px3lcdfxZLVkqpvuVDfkOrS0EQjsJ"
+
+[plugin_settings."noctalia/mpvpaper"]
+hardware_decode = false
+video_directory = "/home/skand/Pictures/WALLPAPERS"
+
+[plugin_settings."yuuto/arch-updater"]
+assume_yes = true
+aur_helper = "paru"
+auto_check_hours = 1
+flatpak_enabled = false
+terminal = "kitty"
+update_cmd = """hyprctl dispatch 'hl.dsp.exec_cmd([[kitty -e bash -c \"echo Updating System...; paru; read -n 1 -p \\\"Press any key to exit...\\\"\"]], { float = true, size = \"800 600\", move = { \"(monitor_w-910)\", \"50\" } })'
+"""
+
+[plugins]
+enabled = [ "cleboost/anilist", "yuuto/arch-updater" ]
+
+[shell]
+avatar_path = "/home/skand/Pictures/PFPs/SZAYEL1.png"
+clipboard_enabled = false
+font_family = "Maple Mono NF"
+input_borders = false
+lang = "en"
+password_style = "random"
+polkit_agent = true
+screen_time_enabled = true
+time_format = "{:%H:%M:%S}"
+ui_scale = 1.350000012665987
+
+    [shell.animation]
+    speed = 1.4500000216066837
+
+    [shell.launcher]
+    app_grid = true
+    auto_paste = "ctrl_v"
+    sort_by_usage = false
+
+        [shell.launcher.providers.calculator]
+        prefix = "clc"
+
+    [shell.panel]
+    clipboard_position = "auto"
+    control_center_placement = "floating"
+    launcher_position = "auto"
+    open_near_click_control_center = true
+    open_near_click_launcher = true
+    session_placement = "floating"
+    session_position = "center"
+    transparency_mode = "glass"
+    wallpaper_placement = "floating"
+    wallpaper_position = "bottom_center"
+
+    [shell.screenshot]
+    copy_to_clipboard = false
+    freeze_screen = false
+    save_to_file = false
+
+    [shell.session]
+    grid = true
+    grid_columns = 2
+
+        [[shell.session.actions]]
+        action = "lock"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "1"
+        variant = "ghost"
+
+        [[shell.session.actions]]
+        action = "logout"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "2"
+        variant = "ghost"
+
+        [[shell.session.actions]]
+        action = "reboot"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "4"
+        variant = "ghost"
+
+        [[shell.session.actions]]
+        action = "shutdown"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "5"
+        variant = "destructive"
+
+    [shell.shadow]
+    direction = "down_right"
+
+[templates]
+
+[theme]
+builtin = "Noctalia"
+community_palette = "Oxocarbon"
+mode = "auto"
+source = "wallpaper"
+wallpaper_scheme = "vibrant"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "cava", "emacs", "gtk3", "gtk4", "hyprland", "kitty", "niri", "qt" ]
+    community_ids = [
+        "pywalfox",
+        "zen-browser",
+        "telegram",
+        "micro",
+        "obsidian",
+        "vscode",
+        "steam",
+        "obs",
+        "hyprtoolkit",
+        "papirus-icons",
+        "yazi"
+    ]
+
+[wallpaper]
+directory = "/home/skand/Pictures/WALLPAPERS"
+edge_smoothness = 0.69999998435378075
+transition = [ "disc", "fade", "honeycomb", "stripes", "wipe" ]
+transition_duration = 600
+transition_on_startup = true
+
+    [wallpaper.automation]
+    enabled = true
+    interval_seconds = 180
+    recursive = false
+
+    [wallpaper.default]
+    path = "/home/skand/Pictures/WALLPAPERS/86 2.png"
+
+    [wallpaper.last]
+    path = "/home/skand/Pictures/WALLPAPERS/86 2.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/skand/Pictures/WALLPAPERS/86 2.png"
+
+    [[wallpaper.favorite]]
+    path = "/home/skand/Pictures/WALLPAPERS/JINWOO WALLPAPER.png"
+    theme_mode = "auto"
+
+    [[wallpaper.favorite]]
+    path = "/home/skand/Pictures/WALLPAPERS/ULQ1.png"
+    theme_mode = "auto"
+
+[widget.tracker]
+glyph = "brand-youtube"
+type = "cleboost/anilist:tracker"
+
+[widget.widget]
+type = "yuuto/arch-updater:widget"
