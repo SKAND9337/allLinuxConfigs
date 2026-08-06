@@ -6,7 +6,8 @@
 local terminal = "kitty"
 local fileManager = "dolphin"
 local mainMod = "SUPER"
-local noctCall = "qs -c noctalia-shell ipc call "
+-- local noctCall = "qs -c noctalia-shell ipc call "
+local noctCall = "noctalia msg "
 --------------
 -- MONITORS --
 --------------
@@ -35,9 +36,9 @@ hl.monitor({
 ---------------
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("systemctl --user start plasma-polkit-agent")
-    -- hl.exec_cmd("noctalia")
-    hl.exec_cmd("uwsm app -- qs -c noctalia-shell")
+	-- hl.exec_cmd("systemctl --user start plasma-polkit-agent")
+    hl.exec_cmd("noctalia")
+    -- hl.exec_cmd("uwsm app -- qs -c noctalia-shell")
     hl.exec_cmd("uwsm app -- clipse -listen")
     hl.exec_cmd("uwsm app -- easyeffects --daemon")
     hl.exec_cmd("uwsm app -- vesktop")
@@ -249,8 +250,11 @@ hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind("CTRL + SPACE", hl.dsp.exec_cmd("uwsm app -- rofi -show drun"))
 hl.bind(mainMod .. " + CTRL + U", hl.dsp.exec_cmd("/home/skand/.local/bin/free-dictionary-rofi.py"))
 hl.bind(mainMod .. " + SHIFT + U", hl.dsp.exec_cmd("~/.local/bin/urban-rofi"))
-hl.bind("Alt_R", hl.dsp.exec_cmd(noctCall .. "launcher toggle"))
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(noctCall .. " lockScreen lock"))
+
+hl.bind("Alt_R", hl.dsp.exec_cmd(noctCall .. "panel-toggle launcher"))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(noctCall .. " session lock"))
+hl.bind("Insert", hl.dsp.exec_cmd(noctCall .. "settings-toggle"))
+hl.bind("XF86Launch2", hl.dsp.exec_cmd(noctCall .. "panel-toggle session"))
 
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("uwsm app -- zen-browser"))
@@ -258,7 +262,6 @@ hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen({ action = "toggle" }
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("uwsm app -- vesktop"))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("uwsm app -- spotify"))
 hl.bind("XF86Calculator", hl.dsp.exec_cmd("uwsm app -- kcalc"))
-hl.bind("XF86Launch2", hl.dsp.exec_cmd(noctCall .. "sessionMenu toggle"))
 
 -- Clipboard
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("uwsm app -- kitty --class clipse -e clipse"))
@@ -416,3 +419,6 @@ if c.primary then
         }
     })
 end
+
+-- For Noctalia Color templates
+require("noctalia").apply_theme()
