@@ -25,11 +25,6 @@ hl.monitor({
 --
 -- NOW MANAGED THROUGH `~.config/uwsm/env`
 -- 
--- hl.env("XCURSOR_THEME", "LighTech-RE")
--- hl.env("XCURSOR_SIZE", "32")
--- hl.env("HYPRCURSOR_THEME", "LighTech-RE")
--- hl.env("HYPRCURSOR_SIZE", "32")
--- hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 ---------------
 -- AUTOSTART --
@@ -37,7 +32,7 @@ hl.monitor({
 
 hl.on("hyprland.start", function()
 	-- hl.exec_cmd("systemctl --user start plasma-polkit-agent")
-    hl.exec_cmd("noctalia")
+    hl.exec_cmd("prime-run noctalia")
     -- hl.exec_cmd("uwsm app -- qs -c noctalia-shell")
     hl.exec_cmd("uwsm app -- clipse -listen")
     hl.exec_cmd("uwsm app -- easyeffects --daemon")
@@ -85,15 +80,15 @@ hl.config({
 
     decoration = {
         rounding = 8,
-        rounding_power = 2,
+        rounding_power = 3,
 
         active_opacity = 0.91,
-        inactive_opacity = 0.75,
+        inactive_opacity = 0.65,
 
         shadow = {
             enabled = true,
-            range = 20,
-            render_power = 3,
+            range = 30,
+            render_power = 2,
             color = 0xee1a1a1a,
         },
 
@@ -103,7 +98,9 @@ hl.config({
             passes = 3,
             vibrancy = 0.35,
             contrast = 0.75,
+            new_optimizations = true,
         },
+
     },
 
     animations = {
@@ -187,8 +184,17 @@ hl.curve("quick", {
 hl.curve("easy", {
     type = "spring",
     mass = 1,
+    -- stiffness = 350.2633,      -- bouncy
+    stiffness = 478.5,      -- quick
+    dampening = 28.8273644,    -- bouncy
+    -- dampening = 59.29       -- quick
+})
+
+hl.curve("easy2", {
+    type = "spring",
+    mass = 1,
     stiffness = 350.2633,      -- bouncy
-    -- stiffness = 878.5,      -- quick
+    -- stiffness = 478.5,      -- quick
     dampening = 28.8273644,    -- bouncy
     -- dampening = 59.29       -- quick
 })
@@ -197,7 +203,7 @@ hl.animation({ leaf = "global",        enabled = true, speed = 10,    bezier = "
 hl.animation({ leaf = "border",        enabled = true, speed = 5.39,  bezier = "easeOutQuint"                          })
 hl.animation({ leaf = "windows",       enabled = true, speed = 4.79,  spring = "easy",                                 })
 hl.animation({ leaf = "windowsIn",     enabled = true, speed = 8.1,   spring = "easy",            style = "slide"      })
-hl.animation({ leaf = "windowsOut",    enabled = true, speed = 1.49,  bezier = "almostLinear",    style = "slide"      })
+hl.animation({ leaf = "windowsOut",    enabled = true, speed = 1.49,  bezier = "almostLinear",    style = "slidefade"  })
 hl.animation({ leaf = "fadeIn",        enabled = true, speed = 1.73,  bezier = "almostLinear"                          })
 hl.animation({ leaf = "fadeOut",       enabled = true, speed = 1.46,  bezier = "almostLinear"                          })
 hl.animation({ leaf = "fade",          enabled = true, speed = 3.03,  bezier = "quick"                                 })
@@ -207,8 +213,8 @@ hl.animation({ leaf = "layersOut",     enabled = true, speed = 1.5,   bezier = "
 hl.animation({ leaf = "fadeLayersIn",  enabled = true, speed = 1.79,  bezier = "almostLinear"                          })
 hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39,  bezier = "almostLinear"                          })
 hl.animation({ leaf = "workspaces",    enabled = true, speed = 1.94,  bezier = "easeInOutSine",   style = "fade"       })
-hl.animation({ leaf = "workspacesIn",  enabled = true, speed = 1.41,  bezier = "easeInOutSine",   style = "fade"       })
-hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94,  bezier = "easeInOutSine",   style = "fade"       })
+hl.animation({ leaf = "workspacesIn",  enabled = true, speed = 1.41,  spring = "easy2",		      style = "slide"      })
+hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94,  spring = "easy2",  		  style = "slide"      })
 hl.animation({ leaf = "zoomFactor",    enabled = true, speed = 7,     bezier = "quick"                                 })
 
 --------------
@@ -241,16 +247,16 @@ hl.device({
 -----------------
 -- KEYBINDINGS --
 -----------------
-hl.bind("CTRL + SHIFT + B", hl.dsp.exec_cmd("uwsm app -- kitty -e btop"))
+hl.bind("CTRL + SHIFT + Escape", hl.dsp.exec_cmd("uwsm app -- kitty -e btop"))
 hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd("uwsm app -- " .. terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("uwsm stop"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("uwsm app -- " .. fileManager))
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind("CTRL + SPACE", hl.dsp.exec_cmd("uwsm app -- rofi -show drun"))
-hl.bind(mainMod .. " + CTRL + U", hl.dsp.exec_cmd("/home/skand/.local/bin/free-dictionary-rofi.py"))
+hl.bind(mainMod .. " + CTRL + U", hl.dsp.exec_cmd(".local/bin/free-dictionary-rofi.py"))
 hl.bind(mainMod .. " + SHIFT + U", hl.dsp.exec_cmd("~/.local/bin/urban-rofi"))
-
+hl.bind("CTRL + SHIFT + B", hl.dsp.exec_cmd("uwsm app -- chatgpt"))
 hl.bind("Alt_R", hl.dsp.exec_cmd(noctCall .. "panel-toggle launcher"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(noctCall .. " session lock"))
 hl.bind("Insert", hl.dsp.exec_cmd(noctCall .. "settings-toggle"))
@@ -261,6 +267,7 @@ hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("uwsm app -- zen-browser"))
 hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("uwsm app -- vesktop"))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("uwsm app -- spotify"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("uwsm app -- /home/skand/Applications/sidra-musicp"))
 hl.bind("XF86Calculator", hl.dsp.exec_cmd("uwsm app -- kcalc"))
 
 -- Clipboard
@@ -316,8 +323,8 @@ hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd([[sh -c 'brightnessctl -n2 set 5%+']]), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd([[sh -c 'brightnessctl -n2 set 5%-']]), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd([[sh -c 'brightnessctl -n2 set 10%+']]), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd([[sh -c 'brightnessctl -n2 set 10%-']]), { locked = true, repeating = true })
 
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
@@ -337,6 +344,11 @@ hl.window_rule({
 
 hl.window_rule({ 
    match = { class = "org.kde.kcalc" },
+   float = true,
+})
+
+hl.window_rule({ 
+   match = { class = "org.freedesktop.impl.portal.desktop.kde" },
    float = true,
 })
 
