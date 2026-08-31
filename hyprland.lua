@@ -184,8 +184,17 @@ hl.curve("quick", {
 hl.curve("easy", {
     type = "spring",
     mass = 1,
+    -- stiffness = 350.2633,      -- bouncy
+    stiffness = 478.5,      -- quick
+    dampening = 28.8273644,    -- bouncy
+    -- dampening = 59.29       -- quick
+})
+
+hl.curve("easy2", {
+    type = "spring",
+    mass = 1,
     stiffness = 350.2633,      -- bouncy
-    -- stiffness = 878.5,      -- quick
+    -- stiffness = 478.5,      -- quick
     dampening = 28.8273644,    -- bouncy
     -- dampening = 59.29       -- quick
 })
@@ -194,7 +203,7 @@ hl.animation({ leaf = "global",        enabled = true, speed = 10,    bezier = "
 hl.animation({ leaf = "border",        enabled = true, speed = 5.39,  bezier = "easeOutQuint"                          })
 hl.animation({ leaf = "windows",       enabled = true, speed = 4.79,  spring = "easy",                                 })
 hl.animation({ leaf = "windowsIn",     enabled = true, speed = 8.1,   spring = "easy",            style = "slide"      })
-hl.animation({ leaf = "windowsOut",    enabled = true, speed = 1.49,  bezier = "almostLinear",    style = "slide"      })
+hl.animation({ leaf = "windowsOut",    enabled = true, speed = 1.49,  bezier = "almostLinear",    style = "slidefade"  })
 hl.animation({ leaf = "fadeIn",        enabled = true, speed = 1.73,  bezier = "almostLinear"                          })
 hl.animation({ leaf = "fadeOut",       enabled = true, speed = 1.46,  bezier = "almostLinear"                          })
 hl.animation({ leaf = "fade",          enabled = true, speed = 3.03,  bezier = "quick"                                 })
@@ -204,8 +213,8 @@ hl.animation({ leaf = "layersOut",     enabled = true, speed = 1.5,   bezier = "
 hl.animation({ leaf = "fadeLayersIn",  enabled = true, speed = 1.79,  bezier = "almostLinear"                          })
 hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39,  bezier = "almostLinear"                          })
 hl.animation({ leaf = "workspaces",    enabled = true, speed = 1.94,  bezier = "easeInOutSine",   style = "fade"       })
-hl.animation({ leaf = "workspacesIn",  enabled = true, speed = 1.41,  bezier = "easeInOutSine",   style = "fade"       })
-hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94,  bezier = "easeInOutSine",   style = "fade"       })
+hl.animation({ leaf = "workspacesIn",  enabled = true, speed = 1.41,  spring = "easy2",		      style = "slide"      })
+hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94,  spring = "easy2",  		  style = "slide"      })
 hl.animation({ leaf = "zoomFactor",    enabled = true, speed = 7,     bezier = "quick"                                 })
 
 --------------
@@ -374,6 +383,11 @@ hl.window_rule({
     float = true,
 })
 
+hl.layer_rule({
+    name = "rofi-glass",
+    match = { namespace = "^rofi$" },
+    blur = true,
+})
 
 --------------
 -- NOCTALIA --
