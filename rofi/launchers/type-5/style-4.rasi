@@ -33,7 +33,7 @@ window {
     padding:                     0px;
     border-radius:               9px;
     cursor:                      "default";
-    background-color:            black / 65%;
+    background-color:            black / 55%;
 }
 
 /*****----- Main Box -----*****/
@@ -177,3 +177,5 @@ textbox {
     vertical-align:              0.5;
     horizontal-align:            0.0;
 }
+
+
