@@ -1,0 +1,60 @@
+gtk-single-instance = true
+# ─────────────────────────────────────────────
+# Ghostty
+# ─────────────────────────────────────────────
+
+# Shell
+command = /usr/bin/fish
+
+# Theme
+theme = noctalia
+
+# ─────────────────────────────────────────────
+# Glass
+# ─────────────────────────────────────────────
+
+background-opacity = 0.48
+background-blur = true
+background-blur-radius = 20
+
+# ─────────────────────────────────────────────
+# Typography
+# ─────────────────────────────────────────────
+
+font-family = Maple Mono NF
+font-size = 16
+
+# Slightly more breathing room
+window-padding-x = 14
+window-padding-y = 12
+
+# ─────────────────────────────────────────────
+# Cursor
+# ─────────────────────────────────────────────
+
+cursor-style = block
+cursor-style-blink = true
+
+# ─────────────────────────────────────────────
+# Window
+# ─────────────────────────────────────────────
+
+window-decoration = false
+window-padding-balance = true
+
+# Don't ask before closing
+confirm-close-surface = false
+
+# ─────────────────────────────────────────────
+# Performance / Behaviour
+# ─────────────────────────────────────────────
+
+shell-integration = detect
+copy-on-select = false
+mouse-hide-while-typing = true
+
+# ─────────────────────────────────────────────
+# Keybinds
+# ─────────────────────────────────────────────
+
+keybind = ctrl+q=quit
