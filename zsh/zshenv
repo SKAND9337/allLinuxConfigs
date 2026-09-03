@@ -1,0 +1,2 @@
+# uv
+export PATH="/home/skand/.local/share/../bin:$PATH"

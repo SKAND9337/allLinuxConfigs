@@ -1,17 +1,28 @@
-source ~/.aliases_zsh
-cff
+# Keep terminal-startup output before Powerlevel10k instant prompt.
+[[ $- == *i* ]] || return
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -t 1 ]] && (( $+commands[fastfetch] )); then
+    fastfetch
+fi
 
+# Enable Powerlevel10k instant prompt.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source /usr/share/cachyos-zsh-config/cachyos-config.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Disable Oh-My-Zsh compaudit permission checking to speed up compinit
+export ZSH_DISABLE_COMPFIX="true"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source /usr/share/cachyos-zsh-config/cachyos-config.zsh
+
+[[ -r ~/.zshrc.local ]] && source ~/.zshrc.local
+export EDITOR=micro
+
+# SLSsteam: Add wrapper to PATH
+export PATH="$HOME/.local/share/SLSsteam/path:$PATH"
+
+# Cached zoxide init to avoid spawning subshell on every launch
+if (( $+commands[zoxide] )); then
+    [[ ! -f ~/.cache/zsh/zoxide.zsh ]] && { mkdir -p ~/.cache/zsh; zoxide init zsh > ~/.cache/zsh/zoxide.zsh; }
+    source ~/.cache/zsh/zoxide.zsh
+fi
