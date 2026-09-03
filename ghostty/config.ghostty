@@ -1,4 +1,3 @@
-gtk-single-instance = true
 # ─────────────────────────────────────────────
 # Ghostty
 # ─────────────────────────────────────────────
@@ -49,6 +48,8 @@ confirm-close-surface = false
 # Performance / Behaviour
 # ─────────────────────────────────────────────
 
+gtk-single-instance = detect
+linux-cgroup = never
 shell-integration = detect
 copy-on-select = false
 mouse-hide-while-typing = true
