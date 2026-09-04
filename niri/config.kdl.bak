@@ -2,11 +2,6 @@ include "noctalia.kdl"
 prefer-no-csd
 workspace "V"
 
-
-
-//---------------
-//--ENVIRONMENT--
-//---------------
 environment {
     QT_QPA_PLATFORMTHEME "qt6ct"
     GTK_USE_PORTAL "1"
@@ -14,18 +9,16 @@ environment {
 }
 
 
-
 //-------------
 //--AUTOSTART--
 //-------------
-spawn-at-startup "uwsm" "app" "--" "noctalia"
+spawn-at-startup "uwsm" "app" "--" "prime-run" "noctalia"
 spawn-at-startup "uwsm" "app" "--" "vesktop"
 spawn-at-startup "uwsm" "app" "--" "easyeffects" "--daemon"
 spawn-at-startup "uwsm" "app" "--" "clipse" "--listen"
 spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 spawn-at-startup "uwsm" "app" "--" "flameshot"
-
 
 
 //-----------------
@@ -51,7 +44,6 @@ input {
     
     focus-follows-mouse max-scroll-amount="0%"
 }
-
 
 
 //---------------
@@ -112,7 +104,6 @@ layer-rule {
 }
 
 
-
 //----------------
 //--WINDOW RULES--
 //----------------
@@ -142,7 +133,6 @@ window-rule {
 
 window-rule {
     match app-id="^vesktop$"
-    open-on-workspace "V"
     open-floating true
     default-column-width { fixed 1900; }
     default-window-height { fixed 1050; }
@@ -157,7 +147,6 @@ window-rule {
     match app-id="flameshot"
     open-floating true
 }
-
 
 
 //---------------
@@ -190,8 +179,6 @@ binds {
     Mod+Shift+V { toggle-window-floating; }
     Mod+Ctrl+F { maximize-window-to-edges; }
     Mod+J { consume-or-expel-window-left; }
-    Mod+Shift+J { consume-or-expel-window-right; }
-    Mod+O repeat=false { toggle-overview; }
     
     // Noctalia & System 
     Mod+L { spawn "sh" "-c" "noctalia msg 'session lock'"; }
@@ -248,7 +235,6 @@ binds {
     XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
     XF86AudioPrev allow-when-locked=true { spawn "playerctl" "previous"; }
 }
-
 
 
 //--------------
@@ -337,12 +323,12 @@ vec4 resize_color(vec3 c, vec3 sz) {
 
                 float max_dist = length(corner);
 
+                // Expand from top-left toward bottom-right.
+                float radius =
+                    max_dist * niri_clamped_progress;
+
                 // Softer anti-aliased edge.
                 float edge = 0.125;
-
-                // Expand from top-left toward bottom-right without edge pop.
-                float radius =
-                    (max_dist + 2.0 * edge) * niri_clamped_progress - edge;
 
                 float reveal = 1.0 - smoothstep(
                     radius - edge,
@@ -364,7 +350,7 @@ vec4 resize_color(vec3 c, vec3 sz) {
                 vec3 coords_tex = niri_geo_to_tex * coords_geo;
                 vec4 color = texture2D(niri_tex, coords_tex.st);
 
-                // Center origin (0.5, 0.5)
+                // Same TOP-LEFT origin.
                 vec2 origin = vec2(0.5, 0.5);
 
                 // Aspect-ratio correction.
@@ -375,18 +361,18 @@ vec4 resize_color(vec3 c, vec3 sz) {
 
                 float dist = length(p);
 
-                // Farthest corner distance from center.
+                // Bottom-right is the farthest point.
                 vec2 corner = vec2(1.0, 1.0) - origin;
                 corner.x *= aspect;
 
                 float max_dist = length(corner);
 
+                // Collapse back toward the top-left.
+                float radius =
+                    max_dist * (1.0 - niri_clamped_progress);
+
                 // Softer anti-aliased edge.
                 float edge = 0.045;
-
-                // Collapse back toward the center without center pop.
-                float radius =
-                    (max_dist + 2.0 * edge) * (1.0 - niri_clamped_progress) - edge;
 
                 float reveal = 1.0 - smoothstep(
                     radius - edge,
