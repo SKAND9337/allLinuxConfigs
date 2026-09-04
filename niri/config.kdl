@@ -1,5 +1,6 @@
 include "noctalia.kdl"
 prefer-no-csd
+workspace "V"
 
 //-------------
 //--AUTOSTART--
@@ -125,6 +126,18 @@ window-rule {
     open-floating true
     default-column-width { fixed 650; }
     default-window-height { fixed 620; }
+}
+
+window-rule {
+    match app-id="org.freedesktop.impl.portal.desktop.kde"
+    open-floating true
+}
+
+window-rule {
+    match app-id="^vesktop$"
+    open-floating true
+    default-column-width { fixed 1900; }
+    default-window-height { fixed 1050; }
 }
 
 window-rule {
