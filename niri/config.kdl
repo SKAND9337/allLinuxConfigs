@@ -1,0 +1,381 @@
+include "noctalia.kdl"
+prefer-no-csd
+
+//-------------
+//--AUTOSTART--
+//-------------
+spawn-at-startup "prime-run" "/home/skand/.local/bin/noctalia"
+spawn-at-startup "vesktop"
+spawn-at-startup "easyeffects" "--daemon"
+spawn-at-startup "numlockx"
+spawn-at-startup "clipse" "--listen"
+spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+spawn-at-startup "uwsm" "app" "--" "flameshot"
+
+environment {
+    LANG "en_IN.UTF-8"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    GTK_USE_PORTAL "1"
+    LANG "en_IN.UTF-8"
+}
+
+
+//-----------------
+//--INPUT DEVICES--
+//-----------------
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+    }
+
+    mouse {
+        accel-speed -0.345
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+        accel-speed -0.105
+    }
+    
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+
+//---------------
+//--CORE CONFIG--
+//---------------
+layout {
+    gaps 13
+    focus-ring {
+       width 4
+    }
+}
+
+window-rule {
+    draw-border-with-background false
+}
+
+//Global Blur
+blur {
+    passes 3
+    offset 4.0
+    saturation 1.3
+}
+
+// Blur shell
+layer-rule {
+    background-effect {
+        xray false
+    }
+}
+
+//Force realistic Hyprland-style blur for all transparent apps
+window-rule {
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+// Inactive Window Opacity
+window-rule {
+    match is-active=false
+    opacity 0.55
+}
+
+// Window Rounding
+window-rule {
+    geometry-corner-radius 5
+    clip-to-geometry true
+}
+
+layer-rule {
+    match namespace="^rofi$"
+
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+window-rule {
+    match app-id="emote"
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+//----------------
+//--WINDOW RULES--
+//----------------
+window-rule {
+    match app-id="clipse"
+    open-floating true
+    default-column-width { fixed 920; }
+    default-window-height { fixed 650; }
+}
+
+window-rule {
+    match app-id="org.kde.kcalc"
+    open-floating true
+    default-column-width { fixed 650; }
+    default-window-height { fixed 620; }
+}
+
+window-rule {
+    match app-id="org.pulseaudio.pavucontrol"
+    open-floating true
+}
+
+window-rule {
+    match app-id="org.freedesktop.impl.portal.desktop.kde"
+    open-floating true
+}
+
+window-rule {
+    match app-id="flameshot"
+    open-floating true
+}
+
+
+//---------------
+//--KEYBINDINGS--
+//---------------
+binds {
+    // App Launchers
+    Ctrl+Shift+Escape { spawn "uwsm" "app" "--" "kitty" "-e" "btop"; }
+    Ctrl+Alt+T { spawn "uwsm" "app" "--" "kitty"; } 
+    Ctrl+Alt+G { spawn "uwsm" "app" "--" "ghostty"; }
+    Mod+E { spawn "uwsm" "app" "--" "dolphin"; }
+    Ctrl+Space { spawn "uwsm" "app" "--" "rofi" "-show" "drun"; }
+    Mod+Ctrl+U { spawn "sh" "-c" "~/.local/bin/free-dictionary-rofi.py"; }
+    Mod+Shift+U { spawn "sh" "-c" "~/.local/bin/urban-rofi"; }
+    Ctrl+Shift+B { spawn "uwsm" "app" "--" "chatgpt"; }
+    Mod+F { spawn "uwsm" "app" "--" "zen-browser"; }
+    Mod+D { spawn "uwsm" "app" "--" "vesktop"; }
+    Mod+S { spawn "uwsm" "app" "--" "spotify"; }
+    Mod+Shift+S { spawn "uwsm" "app" "--" "/home/skand/Applications/sidra-musicp"; }
+    XF86Calculator { spawn "uwsm" "app" "--" "kcalc"; }
+    Mod+V { spawn "uwsm" "app" "--" "kitty" "--class" "clipse" "-e" "clipse"; }
+    Mod+Period { spawn "uwsm" "app" "--" "emote"; }
+
+    Mod+Ctrl+Left { set-column-width "-5%"; }
+    Mod+Ctrl+Right { set-column-width "+5%"; }
+    
+    // Window Management
+    Mod+Q { close-window; }
+    Mod+M { spawn "uwsm" "stop"; }
+    Mod+Shift+V { toggle-window-floating; }
+    Mod+Ctrl+F { fullscreen-window; }
+    Mod+J { consume-or-expel-window-left; }
+    
+    // Noctalia & System 
+    Mod+L { spawn "sh" "-c" "noctalia msg 'session lock'"; }
+    Insert { spawn "sh" "-c" "noctalia msg 'settings-toggle'"; }
+    // Fixed typo: noctalis -> noctalia
+    XF86Launch2 { spawn "sh" "-c" "noctalia msg 'panel-toggle session'"; }
+    
+    // Screenshots
+    Print { spawn "sh" "-c" "flameshot gui --raw | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png && if ! niri msg -j focused-window | jq -e '.is_fullscreen' >/dev/null; then dunstify 'Partial Screenshot captured' -t 700; fi"; }
+    Mod+Print { spawn "sh" "-c" "flameshot full --raw | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png && if ! niri msg -j focused-window | jq -e '.is_fullscreen' >/dev/null; then dunstify 'Screenshot captured' -t 700; fi"; }
+    
+    // Focus & Movement
+    Mod+Left { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Up { focus-window-or-workspace-up; }
+    Mod+Down { focus-window-or-workspace-down; }
+    
+    // Workspaces
+    Mod+1 { focus-workspace 1; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+    Mod+0 { focus-workspace 10; }
+    Mod+Shift+0 { move-column-to-workspace 10; }
+    
+    // Mouse Bindings
+    MouseForward { focus-workspace-up; } 
+    MouseBack { focus-workspace-down; }
+    
+    // Media & Hardware Controls
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "-l" "1" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+    XF86AudioMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "-n2" "set" "10%+"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "-n2" "set" "10%-"; }
+    
+    XF86AudioNext allow-when-locked=true { spawn "playerctl" "next"; }
+    XF86AudioPause allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioPrev allow-when-locked=true { spawn "playerctl" "previous"; }
+}
+
+
+//--------------
+//--ANIMATIONS--
+//-------------
+animations {
+	workspace-switch {
+	    spring damping-ratio=0.67 stiffness=340 epsilon=0.0001
+	}
+	
+	window-resize {
+	    spring damping-ratio=1.0 stiffness=300 epsilon=0.0001
+	    custom-shader r#"
+vec4 resize_color(vec3 c, vec3 sz) {
+	vec2 curr_xy = c.xy;
+
+	if (clamp(curr_xy, 0.0, 1.0) != curr_xy) {
+	    return vec4(0.0);
+	}
+
+	vec2 next_geo = vec2(niri_curr_geo_to_next_geo[0][0] * c.x,
+	                     niri_curr_geo_to_next_geo[1][1] * c.y);
+	if (clamp(next_geo, 0.0, 1.0) == next_geo) {
+	    return texture2D(niri_tex_next,
+	        (niri_geo_to_tex_next * vec3(next_geo, 1.0)).xy);
+	}
+
+	vec2 prev_geo = vec2(niri_curr_geo_to_prev_geo[0][0] * c.x,
+	                     niri_curr_geo_to_prev_geo[1][1] * c.y);
+	if (clamp(prev_geo, 0.0, 1.0) != prev_geo) {
+	    return vec4(0.0);
+	}
+
+	vec2 uv = (niri_geo_to_tex_prev * vec3(prev_geo, 1.0)).xy;
+	vec2 d  = abs(curr_xy - prev_geo);
+
+	float dist = max(d.x, d.y);
+
+	vec2 inv_sz    = 1.0 / max(sz.xy, vec2(1.0));
+	vec2 off_scale = 10.0 * inv_sz;
+	vec2 off_bias  = 0.5 * inv_sz;
+	vec2 off       = dist * off_scale + off_bias;
+
+	mediump vec4 sum = texture2D(niri_tex_prev, uv - off)
+	                 + texture2D(niri_tex_prev, uv + off)
+	                 + texture2D(niri_tex_prev, uv + vec2(off.x, -off.y))
+	                 + texture2D(niri_tex_prev, uv + vec2(-off.x, off.y));
+	return 0.25 * sum;
+}
+	    "#
+	}
+	
+	window-movement {
+	    spring damping-ratio=0.55 stiffness=370 epsilon=0.001
+	}
+	
+	overview-open-close {
+	    spring damping-ratio=0.70 stiffness=700 epsilon=0.0001
+	}
+	
+    window-open {
+        duration-ms 460
+        curve "ease-out-expo"
+
+        custom-shader r"
+            vec4 open_color(vec3 coords_geo, vec3 size_geo) {
+                vec3 coords_tex = niri_geo_to_tex * coords_geo;
+                vec4 color = texture2D(niri_tex, coords_tex.st);
+
+                // Start at the TOP-LEFT corner.
+                // (0, 0) = top-left
+                // (1, 1) = bottom-right
+                vec2 origin = vec2(0.0, 0.0);
+
+                // Correct for window aspect ratio.
+                float aspect = size_geo.x / size_geo.y;
+
+                vec2 p = coords_geo.xy - origin;
+                p.x *= aspect;
+
+                float dist = length(p);
+
+                // Bottom-right is the farthest point.
+                vec2 corner = vec2(1.0, 1.0) - origin;
+                corner.x *= aspect;
+
+                float max_dist = length(corner);
+
+                // Expand from top-left toward bottom-right.
+                float radius =
+                    max_dist * niri_clamped_progress;
+
+                // Softer anti-aliased edge.
+                float edge = 0.025;
+
+                float reveal = 1.0 - smoothstep(
+                    radius - edge,
+                    radius + edge,
+                    dist
+                );
+
+                return color * reveal;
+            }
+        "
+    }
+
+    window-close {
+        duration-ms 390
+        curve "ease-out-quad"
+
+        custom-shader r"
+            vec4 close_color(vec3 coords_geo, vec3 size_geo) {
+                vec3 coords_tex = niri_geo_to_tex * coords_geo;
+                vec4 color = texture2D(niri_tex, coords_tex.st);
+
+                // Same TOP-LEFT origin.
+                vec2 origin = vec2(0.0, 0.0);
+
+                // Aspect-ratio correction.
+                float aspect = size_geo.x / size_geo.y;
+
+                vec2 p = coords_geo.xy - origin;
+                p.x *= aspect;
+
+                float dist = length(p);
+
+                // Bottom-right is the farthest point.
+                vec2 corner = vec2(1.0, 1.0) - origin;
+                corner.x *= aspect;
+
+                float max_dist = length(corner);
+
+                // Collapse back toward the top-left.
+                float radius =
+                    max_dist * (1.0 - niri_clamped_progress);
+
+                // Softer anti-aliased edge.
+                float edge = 0.025;
+
+                float reveal = 1.0 - smoothstep(
+                    radius - edge,
+                    radius + edge,
+                    dist
+                );
+
+                return color * reveal;
+            }
+        "
+    }
+}
