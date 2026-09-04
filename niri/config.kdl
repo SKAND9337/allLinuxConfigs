@@ -2,24 +2,24 @@ include "noctalia.kdl"
 prefer-no-csd
 workspace "V"
 
-//-------------
-//--AUTOSTART--
-//-------------
-spawn-at-startup "prime-run" "/home/skand/.local/bin/noctalia"
-spawn-at-startup "vesktop"
-spawn-at-startup "easyeffects" "--daemon"
-spawn-at-startup "numlockx"
-spawn-at-startup "clipse" "--listen"
-spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "text" "--watch" "cliphist" "store"
-spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "image" "--watch" "cliphist" "store"
-spawn-at-startup "uwsm" "app" "--" "flameshot"
-
 environment {
     LANG "en_IN.UTF-8"
     QT_QPA_PLATFORMTHEME "qt6ct"
     GTK_USE_PORTAL "1"
     LANG "en_IN.UTF-8"
 }
+
+
+//-------------
+//--AUTOSTART--
+//-------------
+spawn-at-startup "prime-run" "/home/skand/.local/bin/noctalia"
+spawn-at-startup "vesktop"
+spawn-at-startup "easyeffects" "--daemon"
+spawn-at-startup "clipse" "--listen"
+spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+spawn-at-startup "uwsm" "app" "--" "flameshot"
 
 
 //-----------------
@@ -30,6 +30,7 @@ input {
         xkb {
             layout "us"
         }
+        numlock
     }
 
     mouse {
@@ -68,11 +69,11 @@ blur {
 }
 
 // Blur shell
-layer-rule {
-    background-effect {
-        xray false
-    }
-}
+//layer-rule {
+//    background-effect {
+//        xray false
+//    }
+//}
 
 //Force realistic Hyprland-style blur for all transparent apps
 window-rule {
@@ -104,6 +105,15 @@ layer-rule {
 }
 
 window-rule {
+    match app-id=r#"^md\.obsidian\.Obsidian$"#
+
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+window-rule {
     match app-id="emote"
     background-effect {
         blur true
@@ -119,6 +129,20 @@ window-rule {
     open-floating true
     default-column-width { fixed 920; }
     default-window-height { fixed 650; }
+}
+
+window-rule {
+    match app-id="^kitty$"
+    default-column-width { proportion 0.85; }
+    background-effect {
+    	blur true
+    	xray false
+    }
+}
+
+window-rule {
+    match app-id="^com.mitchellh.ghostty$"
+    default-column-width { proportion 0.75; }
 }
 
 window-rule {
@@ -184,7 +208,7 @@ binds {
     Mod+Q { close-window; }
     Mod+M { spawn "uwsm" "stop"; }
     Mod+Shift+V { toggle-window-floating; }
-    Mod+Ctrl+F { fullscreen-window; }
+    Mod+Ctrl+F { maximize-window-to-edges; }
     Mod+J { consume-or-expel-window-left; }
     
     // Noctalia & System 
