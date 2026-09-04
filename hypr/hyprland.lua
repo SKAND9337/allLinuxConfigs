@@ -32,7 +32,7 @@ hl.monitor({
 
 hl.on("hyprland.start", function()
 	-- hl.exec_cmd("systemctl --user start plasma-polkit-agent")
-    hl.exec_cmd("prime-run noctalia")
+    hl.exec_cmd("uwsm app -- noctalia")
     -- hl.exec_cmd("uwsm app -- qs -c noctalia-shell")
     hl.exec_cmd("uwsm app -- clipse -listen")
     hl.exec_cmd("uwsm app -- easyeffects --daemon")
@@ -63,7 +63,7 @@ hl.config({
     general = {
         gaps_in = 4,
         gaps_out = 3,
-        border_size = 2,
+        border_size = 3,
 
         col = {
             active_border = {
@@ -249,6 +249,7 @@ hl.device({
 -----------------
 hl.bind("CTRL + SHIFT + Escape", hl.dsp.exec_cmd("uwsm app -- kitty -e btop"))
 hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd("uwsm app -- " .. terminal))
+hl.bind("CTRL + ALT + G", hl.dsp.exec_cmd("uwsm app -- ghostty"))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("uwsm stop"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("uwsm app -- " .. fileManager))
@@ -347,6 +348,10 @@ hl.window_rule({
    float = true,
 })
 
+hl.window_rule({
+	match = { class = "org.pulseaudio.pavucontrol" },
+	float = true,
+})
 hl.window_rule({ 
    match = { class = "org.freedesktop.impl.portal.desktop.kde" },
    float = true,
@@ -383,6 +388,11 @@ hl.window_rule({
     float = true,
 })
 
+hl.layer_rule({
+    name = "rofi-glass",
+    match = { namespace = "^rofi$" },
+    blur = true,
+})
 
 --------------
 -- NOCTALIA --
