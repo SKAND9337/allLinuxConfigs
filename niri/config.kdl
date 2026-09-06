@@ -14,7 +14,6 @@ environment {
 }
 
 
-
 //-------------
 //--AUTOSTART--
 //-------------
@@ -64,6 +63,11 @@ layout {
     }
 }
 
+overview {
+	zoom 0.45
+    backdrop-color "#101010"
+}
+
 window-rule {
     draw-border-with-background false
 }
@@ -110,8 +114,6 @@ layer-rule {
         xray false
     }
 }
-
-
 
 //----------------
 //--WINDOW RULES--
@@ -191,7 +193,7 @@ binds {
     Mod+Ctrl+F { maximize-window-to-edges; }
     Mod+J { consume-or-expel-window-left; }
     Mod+Shift+J { consume-or-expel-window-right; }
-    Mod+O repeat=false { toggle-overview; }
+    Mod+X repeat=true { toggle-overview; }
     
     // Noctalia & System 
     Mod+L { spawn "sh" "-c" "noctalia msg 'session lock'"; }
