@@ -31,6 +31,7 @@ hl.monitor({
 ---------------
 
 hl.on("hyprland.start", function()
+    hl.exec_cmd("uwsm finalize")
 	-- hl.exec_cmd("systemctl --user start plasma-polkit-agent")
     hl.exec_cmd("uwsm app -- noctalia")
     -- hl.exec_cmd("uwsm app -- qs -c noctalia-shell")
@@ -257,7 +258,6 @@ hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind("CTRL + SPACE", hl.dsp.exec_cmd("uwsm app -- rofi -show drun"))
 hl.bind(mainMod .. " + CTRL + U", hl.dsp.exec_cmd(".local/bin/free-dictionary-rofi.py"))
 hl.bind(mainMod .. " + SHIFT + U", hl.dsp.exec_cmd("~/.local/bin/urban-rofi"))
-hl.bind("CTRL + SHIFT + B", hl.dsp.exec_cmd("uwsm app -- chatgpt"))
 hl.bind("Alt_R", hl.dsp.exec_cmd(noctCall .. "panel-toggle launcher"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(noctCall .. " session lock"))
 hl.bind("Insert", hl.dsp.exec_cmd(noctCall .. "settings-toggle"))
@@ -270,39 +270,26 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("uwsm app -- vesktop"))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("uwsm app -- spotify"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("uwsm app -- /home/skand/Applications/sidra-musicp"))
 hl.bind("XF86Calculator", hl.dsp.exec_cmd("uwsm app -- kcalc"))
+hl.bind("CTRL + M", hl.dsp.exec_cmd([[sh -c 'voxtype daemon && voxtype record toggle']]))
 
 -- Clipboard
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("uwsm app -- kitty --class clipse -e clipse"))
 
 -- Emoji Picker
 hl.bind(mainMod .. " + period", hl.dsp.exec_cmd("uwsm app -- emote"))
-
 -- PARTIAL Screenshot
-hl.bind("Print", hl.dsp.exec_cmd([[
-flameshot gui --raw | wl-copy &&
-wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png &&
-(
-    if ! hyprctl activewindow -j | jq -e '.fullscreen != 0' >/dev/null; then
-        dunstify "Partial Screenshot captured" -t 700
-    fi
-)
-]]))
+hl.bind("Print", hl.dsp.exec_cmd(noctCall .. "screenshot-annotate"))
 
 -- FULL Screenshot 
-hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd([[
-flameshot full --raw | wl-copy &&
-wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png &&
-(
-    if ! hyprctl activewindow -j | jq -e '.fullscreen != 0' >/dev/null; then
-        dunstify "Screenshot captured" -t 700
-    fi
-)
-]]))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd(noctCall .. "screenshot-fullscreen"))
+
 
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
+hl.bind("CTRL + ALT + Z", hl.dsp.focus({ direction = "left" }))
+hl.bind("CTRL + ALT + X", hl.dsp.focus({ direction = "right" }))
 
 for i = 1, 9 do
     hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = i }))
