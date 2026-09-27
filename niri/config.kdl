@@ -7,11 +7,7 @@ workspace "V"
 //---------------
 //--ENVIRONMENT--
 //---------------
-environment {
-    QT_QPA_PLATFORMTHEME "qt6ct"
-    GTK_USE_PORTAL "1"
-    LANG "en_IN.UTF-8"
-}
+// NOW MANAGED THROUGH `~/.config/uwsm/env`
 
 
 //-------------
@@ -23,7 +19,7 @@ spawn-at-startup "uwsm" "app" "--" "easyeffects" "--daemon"
 spawn-at-startup "uwsm" "app" "--" "clipse" "--listen"
 spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "image" "--watch" "cliphist" "store"
-spawn-at-startup "uwsm" "app" "--" "flameshot"
+// spawn-at-startup "uwsm" "app" "--" "flameshot"
 
 
 
@@ -174,7 +170,6 @@ binds {
     Ctrl+Space { spawn "uwsm" "app" "--" "rofi" "-show" "drun"; }
     Mod+Ctrl+U { spawn "sh" "-c" "~/.local/bin/free-dictionary-rofi.py"; }
     Mod+Shift+U { spawn "sh" "-c" "~/.local/bin/urban-rofi"; }
-    Ctrl+Shift+B { spawn "uwsm" "app" "--" "chatgpt"; }
     Mod+F { spawn "uwsm" "app" "--" "zen-browser"; }
     Mod+D { spawn "uwsm" "app" "--" "vesktop"; }
     Mod+S { spawn "uwsm" "app" "--" "spotify"; }
@@ -182,7 +177,8 @@ binds {
     XF86Calculator { spawn "uwsm" "app" "--" "kcalc"; }
     Mod+V { spawn "uwsm" "app" "--" "kitty" "--class" "clipse" "-e" "clipse"; }
     Mod+Period { spawn "uwsm" "app" "--" "emote"; }
-
+    Ctrl+M { spawn "sh" "-c" "voxtype" "daemon" "&&" "voxtype" "record" "toggle"; }
+	
     Mod+Ctrl+Left { set-column-width "-5%"; }
     Mod+Ctrl+Right { set-column-width "+5%"; }
     
@@ -196,20 +192,27 @@ binds {
     Mod+X repeat=true { toggle-overview; }
     
     // Noctalia & System 
+    Alt_R { spawn "sh" "-c" "noctalia msg 'panel-toggle launcher'"; }
     Mod+L { spawn "sh" "-c" "noctalia msg 'session lock'"; }
     Insert { spawn "sh" "-c" "noctalia msg 'settings-toggle'"; }
-    // Fixed typo: noctalis -> noctalia
+
+	// Session Menu
     XF86Launch2 { spawn "sh" "-c" "noctalia msg 'panel-toggle session'"; }
-    
+
     // Screenshots
-    Print { spawn "sh" "-c" "flameshot gui --raw | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png && if ! niri msg -j focused-window | jq -e '.is_fullscreen' >/dev/null; then dunstify 'Partial Screenshot captured' -t 700; fi"; }
-    Mod+Print { spawn "sh" "-c" "flameshot full --raw | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png && if ! niri msg -j focused-window | jq -e '.is_fullscreen' >/dev/null; then dunstify 'Screenshot captured' -t 700; fi"; }
+    Print { spawn "noctalia" "msg" "screenshot-annotate"; }
+    Mod+Print { spawn "noctalia" "msg" "screenshot-fullscreen"; }
     
     // Focus & Movement
     Mod+Left { focus-column-left; }
     Mod+Right { focus-column-right; }
     Mod+Up { focus-window-or-workspace-up; }
     Mod+Down { focus-window-or-workspace-down; }
+    Ctrl+ALT+z { focus-column-left; }
+    Ctrl+ALT+x { focus-column-right; }
+	//Ctrl+ALT+W { focus-window-or-workspace-up; }
+	//Ctrl+ALT+S { focus-window-or-workspace-down; }
+	                
     
     // Workspaces
     Mod+1 { focus-workspace 1; }
@@ -237,6 +240,9 @@ binds {
     MouseForward { focus-workspace-up; } 
     MouseBack { focus-workspace-down; }
     
+    SHIFT+MouseForward { focus-column-right; }
+    SHIFT+MouseBack { focus-column-left; }
+
     // Media & Hardware Controls
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "-l" "1" "@DEFAULT_AUDIO_SINK@" "5%+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
