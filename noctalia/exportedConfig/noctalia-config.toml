@@ -1,0 +1,1706 @@
+[accessibility]
+ui_scale = 1.2000000104308128
+
+[audio]
+enable_sounds = true
+sound_volume = 0.39999999105930328
+
+[backdrop]
+blur_intensity = 0.44999998994171619
+enabled = true
+tint_intensity = 0.64999998547136784
+
+[bar]
+order = [ "Main" ]
+
+    [bar.Main]
+    auto_hide = true
+    background_opacity = 0.14999999664723873
+    border = "primary"
+    border_width = 2.0
+    capsule = true
+    capsule_border = "on_hover"
+    capsule_opacity = 0.39999999105930328
+    capsule_radius = 9
+    capsule_thickness = 0.74999998696148396
+    center = [ "launcher", "workspaces", "widget" ]
+    contact_shadow = true
+    end = [ "notifications", "date", "volume", "battery", "network", "control-center", "session" ]
+    font_family = "Geist Mono"
+    font_weight = 600
+    layer = "overlay"
+    margin_edge = 4
+    margin_ends = 7
+    padding = 15
+    radius = 15
+    reserve_space = false
+    scale = 1.4500000141561031
+    start = [ "tracker", "wallpaper", "media", "tray", "privacy" ]
+    thickness = 50
+    widget_spacing = 7
+
+        [bar.Main.dead_zone.actions]
+        middle = "exec noctalia msg settings-toggle"
+        scroll_down = "volume-down"
+        scroll_up = "volume-up"
+
+[battery]
+warning_threshold = 25
+
+[brightness]
+minimum_brightness = 0.99999997764825821
+
+[calendar]
+
+[control_center]
+hidden_tabs = [ "monitor", "power" ]
+width = 680
+
+    [control_center.calendar]
+    show_events_card = false
+
+    [[control_center.shortcuts]]
+    type = "wifi"
+
+    [[control_center.shortcuts]]
+    type = "power_profile"
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+    [[control_center.shortcuts]]
+    type = "media"
+
+    [[control_center.shortcuts]]
+    type = "system"
+
+    [[control_center.shortcuts]]
+    type = "weather"
+
+[desktop_widgets]
+schema_version = 2
+widget_order = [
+    "desktop-widget-0000000000000006",
+    "desktop-widget-0000000000000001",
+    "desktop-widget-0000000000000002",
+    "desktop-widget-0000000000000003",
+    "desktop-widget-0000000000000004",
+    "desktop-widget-0000000000000005"
+]
+
+    [desktop_widgets.grid]
+    cell_size = 24
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000001]
+    box_height = 656.0
+    box_width = 656.0
+    cx = 960.0
+    cy = 676.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "fancy_audio_visualizer"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
+        background = false
+        bar_width = 0.60000000000000009
+        bloom_intensity = 0.35000000000000003
+        inner_diameter = 0.40000000000000002
+        ring_opacity = 0.5
+        rotation_speed = 0.5
+        sensitivity = 1.2000000000000002
+        visualization_mode = "all"
+        wave_thickness = 0.90000000000000013
+
+    [desktop_widgets.widget.desktop-widget-0000000000000002]
+    box_height = 96.0
+    box_width = 336.0
+    cx = 1712.0
+    cy = 84.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
+        background = true
+        background_opacity = 0.080000000000000002
+        background_padding = 11
+        background_radius = 24
+        center_text = true
+        clock_style = "digital"
+        format = "{:%I:%M:%S%p}"
+        shadow = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000003]
+    box_height = 264.0
+    box_width = 624.0
+    cx = 352.0
+    cy = 888.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "media_player"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000003.settings]
+        background_opacity = 0.25
+        background_padding = 6
+        background_radius = 24
+        hide_when_no_media = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000004]
+    box_height = 272.0
+    box_width = 480.0
+    cx = 1616.0
+    cy = 884.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "sysmon"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000004.settings]
+        background_opacity = 0.25
+        background_padding = 5
+        background_radius = 24
+        stat = "cpu_usage"
+        stat2 = "cpu_temp"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000005]
+    box_height = 120.0
+    box_width = 288.0
+    cx = 1712.0
+    cy = 664.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "weather"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000005.settings]
+        background_opacity = 0.25
+        background_padding = 0
+        background_radius = 24
+
+    [desktop_widgets.widget.desktop-widget-0000000000000006]
+    box_height = 456.0
+    box_width = 768.0
+    cx = 960.0
+    cy = 192.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "h465855hgg/lyrics:desktop"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000006.settings]
+        background = false
+        background_color = "primary"
+        background_opacity = 0.0
+        background_padding = 0
+        background_radius = 32
+
+[dock]
+active_scale = 1.1000000163912773
+auto_hide = true
+background_opacity = 0.0
+border_width = 2.0
+cross_axis_padding = 7
+enabled = true
+icon_size = 52
+inactive_opacity = 0.669999985024333
+item_spacing = 14
+launcher_custom_image = "/home/skand/Desktop/SKAND/CACHY_PINK.png"
+launcher_position = "end"
+layer = "overlay"
+magnification_scale = 1.6000000089406967
+main_axis_padding = 15
+margin_edge = 10
+pinned = [ "code", "spotify", "org.kde.dolphin", "zen", "vesktop" ]
+radius = 24
+reserve_space = false
+show_dots = true
+
+[idle]
+pre_action_fade_seconds = 0
+
+[location]
+address = "Bhopal, India"
+auto_locate = true
+
+[lockscreen]
+blur_intensity = 0.39999999105930328
+fingerprint = false
+tint_intensity = 0.44999998994171619
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [
+    "lockscreen-login-box@WAYLAND-1",
+    "lockscreen-login-box@winit",
+    "lockscreen-login-box@eDP-1",
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000002",
+    "lockscreen-widget-0000000000000003",
+    "lockscreen-widget-0000000000000004",
+    "lockscreen-widget-0000000000000005"
+]
+
+    [lockscreen_widgets.grid]
+    cell_size = 32
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@WAYLAND-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 470.0
+    cy = 872.0
+    output = "WAYLAND-1"
+    placement_height = 1054.0
+    placement_width = 940.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@WAYLAND-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 928.0
+    cx = 528.0
+    cy = 922.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.75
+        background_radius = 8.0
+        center_password_text = false
+        input_opacity = 0.40000000000000002
+        input_radius = 24.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = false
+        show_weather = false
+
+    [lockscreen_widgets.widget."lockscreen-login-box@winit"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 470.0
+    cy = 872.0
+    output = "winit"
+    placement_height = 1054.0
+    placement_width = 940.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@winit".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 96.0
+    box_width = 256.0
+    cx = 480.0
+    cy = 748.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background_opacity = 0.40000000000000002
+        background_padding = 9
+        background_radius = 24
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 160.0
+    box_width = 640.0
+    cx = 960.0
+    cy = 396.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "audio_visualizer"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background = false
+        background_opacity = 0.12
+        background_padding = 0
+        background_radius = 24
+        bands = 40
+        mirrored = true
+        reversed = false
+        show_when_idle = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+    box_height = 96.0
+    box_width = 256.0
+    cx = 192.0
+    cy = 748.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "weather"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+        background_opacity = 0.40000000000000002
+        background_padding = 7
+        background_radius = 24
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000004]
+    box_height = 512.0
+    box_width = 992.0
+    cx = 960.0
+    cy = 0.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "h465855hgg/lyrics:desktop"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000004.settings]
+        background = false
+        background_opacity = 0.91000000000000003
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000005]
+    box_height = 448.0
+    box_width = 672.0
+    cx = 1520.0
+    cy = 796.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "calendar"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000005.settings]
+        background_opacity = 0.23999999999999999
+        background_padding = 13
+        background_radius = 24
+
+[notification]
+background_opacity = 0.69999998435378075
+offset_x = 35
+offset_y = 43
+position = "top_center"
+
+[osd]
+background_opacity = 0.33999999240040779
+offset_y = 80
+position = "bottom_center"
+scale = 1.1000000089406967
+
+[plugin_settings."cleboost/anilist"]
+client_id = "47970"
+client_secret = "D7ci88H8su0px3lcdfxZLVkqpvuVDfkOrS0EQjsJ"
+library_layer = "overlay"
+
+[plugin_settings."noctalia/mpvpaper"]
+video_directory = "/home/skand/Pictures/WALLPAPERS"
+
+[plugin_settings."noctalia/wallpaper_depth"]
+auto_generate = false
+feather = 20
+threshold = 20
+
+[plugin_settings."yuuto/arch-updater"]
+assume_yes = true
+aur_helper = "paru"
+auto_check_hours = 1
+check_arch_news = false
+flatpak_enabled = false
+log_lines = 30
+panel_placement = "floating"
+panel_position = "bottom_center"
+rollback_auto_ignore = true
+show_activity_graph = true
+terminal = "kitty"
+update_mode = "background"
+
+[plugins]
+auto_update = "all"
+enabled = [ "yuuto/arch-updater", "h465855hgg/lyrics", "noctalia/translator", "cleboost/anilist" ]
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/official-plugins"
+    name = "official"
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/community-plugins"
+    name = "community"
+
+    [[plugins.source]]
+    kind = "path"
+    location = "/home/skand/CODING/noctalia-community-plugins"
+    name = "lyrics-dev"
+
+[shell]
+avatar_path = "/home/skand/Pictures/PFPs/SZAYEL1.png"
+clipboard_auto_paste = "ctrl_v"
+clipboard_enabled = false
+clipboard_keep_from_closed_apps = false
+corner_radius_scale = 1.2000000178813934
+font_family = "Geist Mono"
+input_borders = false
+lang = "en"
+launch_apps_custom_command = "uwsm app -- $CMD"
+password_style = "random"
+polkit_agent = true
+screen_time_enabled = true
+time_format = "{:%H:%M:%S}"
+ui_scale = 1.350000012665987
+
+    [shell.animation]
+    speed = 1.3000000193715096
+
+    [shell.greeter_sync]
+    auto_sync = true
+
+    [shell.launcher]
+    app_grid = true
+    auto_paste = "ctrl_v"
+    sort_by_usage = false
+
+        [shell.launcher.providers.calculator]
+        prefix = "clc"
+
+        [shell.launcher.providers.emoji]
+        global = true
+
+    [shell.panel]
+    clipboard_position = "auto"
+    control_center_placement = "floating"
+    launcher_position = "auto"
+    open_near_click_control_center = true
+    open_near_click_launcher = true
+    open_near_click_session = true
+    session_placement = "floating"
+    session_position = "center"
+    transparency_mode = "glass"
+    wallpaper_placement = "floating"
+    wallpaper_position = "bottom_center"
+
+    [shell.screenshot]
+    directory = "/home/skand/Pictures/Screenshots"
+    pipe_command = "/usr/bin/wl-"
+
+    [shell.session]
+    grid_columns = 1
+
+        [[shell.session.actions]]
+        action = "lock"
+        countdown_seconds = 3.0
+        enabled = true
+        shortcut = "KP_1"
+        variant = "ghost"
+
+        [[shell.session.actions]]
+        action = "reboot"
+        countdown_seconds = 3.0
+        enabled = true
+        shortcut = "KP_2"
+        variant = "ghost"
+
+        [[shell.session.actions]]
+        action = "logout"
+        countdown_seconds = 3.0
+        enabled = true
+        shortcut = "KP_3"
+        variant = "ghost"
+
+        [[shell.session.actions]]
+        action = "shutdown"
+        countdown_seconds = 3.0
+        enabled = true
+        shortcut = "KP_4"
+        variant = "destructive"
+
+        [[shell.session.actions]]
+        action = "command"
+        command = "sudo systemctl reboot --firmware-setup"
+        countdown_seconds = 3.0
+        enabled = true
+        label = "Firmware"
+        shortcut = "KP_5"
+        variant = "outline"
+
+    [shell.shadow]
+    alpha = 0.68999998457729816
+    direction = "down_right"
+
+[theme]
+builtin = "Noctalia"
+community_palette = "Spiderman"
+mode = "dark"
+pure_black_dark = true
+shell_mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "cava", "emacs", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "kitty", "niri", "qt" ]
+    community_ids = [
+        "pywalfox",
+        "pywalfox-beta4",
+        "zen-browser",
+        "telegram",
+        "micro",
+        "obsidian",
+        "vscode",
+        "heroiclauncher",
+        "steam",
+        "rofi",
+        "obs",
+        "hyprtoolkit",
+        "papirus-icons"
+    ]
+
+        [theme.templates.user.superfile]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/superfile.toml"
+        output_path = "$XDG_CONFIG_HOME/superfile/theme/noctalia.toml"
+
+[wallpaper]
+directory = "/home/skand/Pictures/WALLPAPERS"
+edge_smoothness = 0.34999999217689037
+transition = [ "disc", "honeycomb", "stripes", "wipe", "zoom" ]
+transition_duration = 2400
+transition_on_startup = true
+
+    [wallpaper.automation]
+    enabled = true
+    interval_seconds = 100
+    recursive = false
+
+    [wallpaper.default]
+    path = "/home/skand/Pictures/WALLPAPERS/YORU 1.png"
+
+    [wallpaper.last]
+    path = "/home/skand/Pictures/WALLPAPERS/YORU 1.png"
+
+    [wallpaper.monitors.WAYLAND-1]
+    path = "/home/skand/Pictures/WALLPAPERS/P3R.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/skand/Pictures/WALLPAPERS/YORU 1.png"
+
+    [wallpaper.monitors.winit]
+    path = "/home/skand/Pictures/WALLPAPERS/INOUE 3.png"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/LUCY 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/YNU.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/KURISU 4.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/SM 5.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 14.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-rainbow"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/SM 4.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/86 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-rainbow"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/SM 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/2B.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-tonal-spot"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/86 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/86 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/2077FESTIVAL.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/AIZEN 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "soft"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/ALT.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/YUNO 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "soft"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/SUI FENG 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/MIKU 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-rainbow"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/MIKU 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-fruit-salad"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Artorias 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/BB1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-tonal-spot"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/BRANDofSacrifice.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-tonal-spot"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/LUCY 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-tonal-spot"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/LUCY 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/BB2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-monochrome"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 8.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/DAVID 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/GRIMMJOW 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/MIKU 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-rainbow"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/REZERO 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/SHUNSUI 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/VANITAS 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "soft"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 9.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "soft"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/SHINJI 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/BB3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-tonal-spot"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/SHUNSUI 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/BYAKUYA 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-tonal-spot"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/BYAKUYA 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-rainbow"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/YORU 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-fruit-salad"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/V.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-fruit-salad"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/YHWACH 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-fruit-salad"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/P5.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/GENI 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-fruit-salad"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/FRIEREN 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/KURISU 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/KURISU 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/KURISU 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/ORV 6.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-tonal-spot"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/TYRELL 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-rainbow"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/GENI 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-tonal-spot"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/SoC 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/SoC 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-rainbow"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 10.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-fruit-salad"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/GIRLwithTUX.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/KURISU 5.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-rainbow"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/JOJO 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/MIKU 4.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-fruit-salad"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/MIKU 5.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-fruit-salad"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/KURUMI 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/JINWOO WALLPAPER.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-fruit-salad"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/YHWACH 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-tonal-spot"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/YHWACH 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/INOUE 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-rainbow"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/KISUKE 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/RANNI 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-fruit-salad"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/ORV 8.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-fruit-salad"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/YHWACH 4.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-monochrome"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/RETSU 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/GoT_Wallpaper.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/BACHI 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/ORV 4.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/BB4.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-rainbow"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/MESSMER 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "soft"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/TG 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/2B 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "soft"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/SEKIRO 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-rainbow"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/KISUKE 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/GetsugaMoon.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-rainbow"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/YHWACH 5.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-tonal-spot"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/JUGO 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-rainbow"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/DENJI 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/DENJI 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/DENJI 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/CAR.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-fruit-salad"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/REZERO 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/ORV 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-tonal-spot"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/YNU 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/YORU 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/ORV 10.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/ORV 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-fruit-salad"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/ORV 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/ORV 5.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "soft"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/ORV 9.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/ORV 7.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/MISC 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/MISC 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/SM 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/SM 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-tonal-spot"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 13.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/BLACK KNIGHT.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/SEKIRO 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/SENGOKU.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/SHUNSUI 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-rainbow"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/TG 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Catppuccin"
+    palette_source = "builtin"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 4.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 11.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 12.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-fruit-salad"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 15.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/codeGeass.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/CP ADAM.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/ERGOPROXY1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/GUILTY CROWN 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/GIN 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-tonal-spot"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/ULQ1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Violet 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-rainbow"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/OVERLORD 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/NIGHTREIGN.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-rainbow"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/NIGHTREIGN 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/GOATHIME 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-rainbow"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/GOATHIME 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "dysfunctional"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/RETSU 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/REZE 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/REZE 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/RUKIA 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/TG 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Violet 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/REI.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-tonal-spot"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/KISUKE 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Noctalia"
+    palette_source = "builtin"
+    path = "/home/skand/Pictures/WALLPAPERS/MIKU 6.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/MONIKA 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "soft"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Nord"
+    palette_source = "builtin"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 16.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Catppuccin"
+    palette_source = "builtin"
+    path = "/home/skand/Pictures/WALLPAPERS/GATARI 1.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Tokyo-Night"
+    palette_source = "builtin"
+    path = "/home/skand/Pictures/WALLPAPERS/REZERO 3.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/REZE 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Catppuccin"
+    palette_source = "builtin"
+    path = "/home/skand/Pictures/WALLPAPERS/KURUMI 2.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 17.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/KURUMI 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-fruit-salad"
+
+    [[wallpaper.favorite]]
+    community_palette = "Spiderman"
+    palette_source = "community"
+    path = "/home/skand/Pictures/WALLPAPERS/YHWACH 7.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/YHWACH 6.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Gruvbox"
+    palette_source = "builtin"
+    path = "/home/skand/Pictures/WALLPAPERS/SHINJI 2.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/KURUMI 4.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "dysfunctional"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/MCAFE 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-fruit-salad"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Dracula"
+    palette_source = "builtin"
+    path = "/home/skand/Pictures/WALLPAPERS/P3R.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/GOATHIME 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/MCAFE 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 18.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/SAO 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "dysfunctional"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/YHWACH 8.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/YHWACH 8b.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 16b.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 5.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "dysfunctional"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 6.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 7.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/Chigo 19.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Eldritch"
+    palette_source = "builtin"
+    path = "/home/skand/Pictures/WALLPAPERS/RUKIA 2.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Catppuccin"
+    palette_source = "builtin"
+    path = "/home/skand/Pictures/WALLPAPERS/ADO 2.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/ADO 1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "dysfunctional"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/ADO 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "dysfunctional"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Nord"
+    palette_source = "builtin"
+    path = "/home/skand/Pictures/WALLPAPERS/ADO 4.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Kanagawa"
+    palette_source = "builtin"
+    path = "/home/skand/Pictures/WALLPAPERS/TM OPERA O 1.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/2B 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "soft"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Dracula"
+    palette_source = "builtin"
+    path = "/home/skand/Pictures/WALLPAPERS/POWER 1.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/YHWACH 9.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/YHWACH 9b.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/GATARI 3.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/GATARI 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "dysfunctional"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Gruvbox"
+    palette_source = "builtin"
+    path = "/home/skand/Pictures/WALLPAPERS/KURISU 6.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Rosé Pine"
+    palette_source = "builtin"
+    path = "/home/skand/Pictures/WALLPAPERS/MCAFE 4.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Nord"
+    palette_source = "builtin"
+    path = "/home/skand/Pictures/WALLPAPERS/SEKIRO 3.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/86 4.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/KURISU 7.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "dysfunctional"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Catppuccin"
+    palette_source = "builtin"
+    path = "/home/skand/Pictures/WALLPAPERS/Violet 3.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/skand/Pictures/WALLPAPERS/MCAFE 2.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+[widget.media]
+font_family = "Cinzel"
+font_weight = 600
+
+[widget.privacy]
+color = "error"
+hide_inactive = true
+icon_color = "error"
+icon_spacing = 3
+
+[widget.tracker]
+glyph = "brand-youtube"
+type = "cleboost/anilist:tracker"
+
+[widget.wallpaper.actions]
+right = "wallpaper-random"
+
+[widget.widget]
+type = "yuuto/arch-updater:widget"
+
+[widget.workspaces]
+label_source = "name"

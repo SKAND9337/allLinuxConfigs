@@ -29,6 +29,9 @@
     },
     "audio": {
         "mprisBlacklist": [
+            "zen",
+            "helium",
+            "firefox"
         ],
         "preferredPlayer": "spotify",
         "spectrumFrameRate": 100,
@@ -758,10 +761,6 @@
             },
             {
                 "enabled": true,
-                "id": "ghostty"
-            },
-            {
-                "enabled": true,
                 "id": "pywalfox"
             },
             {
@@ -809,7 +808,7 @@
                 "id": "hyprland"
             }
         ],
-        "enableUserTheming": false
+        "enableUserTheming": true
     },
     "ui": {
         "boxBorderEnabled": true,
@@ -827,7 +826,7 @@
     },
     "wallpaper": {
         "automationEnabled": true,
-        "directory": "/home/skand/Pictures/WALLPAPERS",
+        "directory": "/home/skand/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [

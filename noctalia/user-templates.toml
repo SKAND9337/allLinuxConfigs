@@ -1,11 +1,3 @@
-[config]
-
-[templates]
-
-# User-defined templates
-# Add your custom templates below
-# Example:
-# [templates.myapp]
-# input_path = "~/.config/noctalia/templates/myapp.css"
-# output_path = "~/.config/myapp/theme.css"
-# post_hook = "myapp --reload-theme"
+[theme.templates.user.superfile]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/superfile.toml"
+output_path = "$XDG_CONFIG_HOME/superfile/theme/noctalia.toml"
