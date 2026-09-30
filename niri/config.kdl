@@ -17,8 +17,8 @@ spawn-at-startup "uwsm" "app" "--" "noctalia"
 spawn-at-startup "uwsm" "app" "--" "vesktop"
 spawn-at-startup "uwsm" "app" "--" "easyeffects" "--daemon"
 spawn-at-startup "uwsm" "app" "--" "clipse" "--listen"
-spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "text" "--watch" "cliphist" "store"
-spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+// spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+// spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 // spawn-at-startup "uwsm" "app" "--" "flameshot"
 
 
@@ -47,6 +47,14 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
+//----------
+//--CURSOR--
+//----------
+cursor {
+    xcursor-theme "Marathon-bold"
+    xcursor-size 32
+}
+
 
 
 //---------------
@@ -61,7 +69,6 @@ layout {
 
 overview {
 	zoom 0.45
-    backdrop-color "#101010"
 }
 
 window-rule {
@@ -314,7 +321,7 @@ vec4 resize_color(vec3 c, vec3 sz) {
 	}
 	
 	overview-open-close {
-	    spring damping-ratio=0.70 stiffness=700 epsilon=0.0001
+	    spring damping-ratio=0.50 stiffness=900 epsilon=0.001
 	}
 	
     window-open {
@@ -407,3 +414,9 @@ vec4 resize_color(vec3 c, vec3 sz) {
         "
     }
 }
+
+
+layer-rule {
+        match namespace="^noctalia-backdrop"
+        place-within-backdrop true
+    }
