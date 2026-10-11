@@ -3,11 +3,14 @@ high_contrast = false
 ui_scale = 1.2000000476837158
 
 [audio]
+enable_notification_sounds = true
 enable_overdrive = false
+enable_power_sounds = true
+enable_screenshot_sounds = true
 enable_sounds = true
-notification_sound = ""
+enable_volume_sounds = true
+sound_theme = "freedesktop"
 sound_volume = 0.39999997615814209
-volume_change_sound = ""
 
 [backdrop]
 blur_intensity = 0.44999998807907104
@@ -24,6 +27,7 @@ order = [ "Main" ]
     border_width = 2.0
     capsule = true
     capsule_border = "on_hover"
+    capsule_border_width = 1.0
     capsule_fill = "surface_variant"
     capsule_group = []
     capsule_opacity = 0.39999997615814209
@@ -31,6 +35,7 @@ order = [ "Main" ]
     capsule_radius = 9.0
     capsule_thickness = 0.75
     center = [ "launcher", "workspaces", "widget" ]
+    compositor_blur = true
     concave_edge_corners = true
     contact_shadow = true
     enabled = true
@@ -55,6 +60,7 @@ order = [ "Main" ]
     scale = 1.4500000476837158
     shadow = true
     show_on_workspace_switch = true
+    show_tooltip = true
     smart_auto_hide = false
     start = [ "tracker", "wallpaper", "media", "tray", "privacy" ]
     thickness = 50
@@ -75,10 +81,18 @@ minimum_brightness = 1.0
 sync_all_monitors = false
 
 [calendar]
+dedupe_events = false
+dedupe_ignore_patterns = []
 enabled = false
 event_date_format = "%A %e %B"
 event_time_format = "%H:%M"
 refresh_minutes = 15
+
+    [calendar.reminders]
+    all_day_digest_time = "09:00"
+    default_lead_minutes = 10
+    enabled = true
+    use_event_reminders = true
 
 [control_center]
 hidden_tabs = [ "monitor", "power" ]
@@ -204,10 +218,10 @@ widget_order = [
         background_radius = 24
 
     [desktop_widgets.widget.desktop-widget-0000000000000006]
-    box_height = 456.0
-    box_width = 768.0
+    box_height = 432.0
+    box_width = 1320.0
     cx = 960.0
-    cy = 192.0
+    cy = 180.0
     enabled = true
     output = "eDP-1"
     placement_height = 1080.0
@@ -237,11 +251,11 @@ widget_order = [
         [desktop_widgets.widget.desktop-widget-0000000000000007.settings]
         background = false
         bar_width = 0.80000000000000004
-        bloom_intensity = 0.65000000000000002
-        inner_diameter = 0.35000000000000003
+        bloom_intensity = 0.75
+        inner_diameter = 0.30000000000000004
         ring_opacity = 0.30000000000000004
-        rotation_speed = 0.90000000000000002
-        sensitivity = 1.3
+        rotation_speed = 1.2000000000000002
+        sensitivity = 0.90000000000000002
         visualization_mode = "all"
         wave_thickness = 0.90000000000000002
 
@@ -270,7 +284,6 @@ magnification_scale = 1.6000000238418579
 main_axis_padding = 15
 margin_edge = 10
 margin_ends = 0
-monitors = []
 pinned = [ "code", "spotify", "org.kde.dolphin", "zen", "vesktop" ]
 position = "bottom"
 radius = 24
@@ -377,11 +390,15 @@ sunset = ""
 allow_empty_password = false
 blur_intensity = 0.39999997615814209
 blurred_desktop = false
+edge_smoothness = 0.30000001192092896
 enabled = true
 fingerprint = false
+grace_period_seconds = 0
 lock_before_suspend = true
 monitors = []
 tint_intensity = 0.44999998807907104
+transition = [ "fade", "wipe", "disc", "stripes", "zoom", "honeycomb", "vortex", "pixel", "diamond", "golden", "melt" ]
+transition_duration = 1500.0
 wallpaper = ""
 
 [lockscreen_widgets]
@@ -585,8 +602,11 @@ temperature_night = 4000
 [notification]
 background_opacity = 0.69999998807907104
 border = true
+border_color = "outline"
+border_width = 1.0
 collapse_on_dismiss = true
 enable_daemon = true
+follow_focused_output = false
 history_retention_hours = 0
 keep_dismissed_in_history = true
 layer = "top"
@@ -598,11 +618,16 @@ position = "top_center"
 scale = 1.0
 show_actions = true
 show_app_name = true
+width = 360
 
 [osd]
 background_opacity = 0.34000000357627869
 border = true
+border_color = "outline"
+border_width = 1.0
 enabled = true
+follow_focused_output = false
+hide_delay_ms = 1400
 monitors = []
 offset_x = 20
 offset_y = 80
@@ -657,7 +682,7 @@ update_mode = "background"
 
 [plugins]
 auto_update = "all"
-enabled = [ "yuuto/arch-updater", "h465855hgg/lyrics", "noctalia/translator", "cleboost/anilist" ]
+enabled = [ "h465855hgg/lyrics", "noctalia/translator", "cleboost/anilist", "yuuto/arch-updater" ]
 
     [[plugins.source]]
     enabled = true
@@ -703,7 +728,9 @@ password_style = "random"
 polkit_agent = true
 popup_borders = true
 popup_shadows = true
+readline_shortcuts = false
 screen_time_enabled = true
+settings_expand_all_groups = false
 settings_show_advanced = true
 settings_window_translucent = false
 setup_wizard_enabled = true
@@ -751,6 +778,8 @@ umbriel_overview_type_to_launch_enabled = false
     blacklist = []
 
     [shell.panel]
+    border_color = "outline"
+    border_width = 1.0
     borders = true
     clipboard_placement = "floating"
     clipboard_position = "auto"
@@ -774,6 +803,7 @@ umbriel_overview_type_to_launch_enabled = false
     transparency_mode = "glass"
     wallpaper_placement = "floating"
     wallpaper_position = "bottom_center"
+    wallpaper_show_names = true
 
     [shell.privacy]
     cam_filter_regex = ""
@@ -862,7 +892,13 @@ umbriel_overview_type_to_launch_enabled = false
     direction = "down_right"
 
     [shell.window_switcher]
+    current_workspace_only = false
     mru = false
+    show_all_outputs = true
+    show_app_icon = true
+    show_caption = true
+    show_count = true
+    style = "carousel"
 
 [storage]
 key_file = ""
@@ -906,20 +942,18 @@ swap_pct_activity_threshold = 20.0
 swap_pct_critical_threshold = 80.0
 
 [theme]
-builtin = "Rosé Pine"
-community_palette = "Mine"
+builtin = "Kanagawa"
+community_palette = "Occult Umbral"
 custom_palette = ""
 mode = "dark"
 pure_black_dark = true
 shell_mode = "dark"
-source = "community"
-wallpaper_scheme = "vibrant"
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
     builtin_ids = [ "btop", "cava", "emacs", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "kitty", "niri", "qt" ]
     community_ids = [
-        "pywalfox",
-        "pywalfox-beta4",
         "zen-browser",
         "telegram",
         "micro",
@@ -956,13 +990,13 @@ enabled = true
 fill_color = ""
 fill_mode = "crop"
 per_monitor_directories = false
-transition = [ "disc", "honeycomb", "stripes", "wipe", "zoom" ]
+transition = [ "diamond", "disc", "fade", "golden", "honeycomb", "melt", "pixel", "stripes", "vortex", "wipe", "zoom" ]
 transition_duration = 1300.0
 transition_on_startup = true
 
     [wallpaper.automation]
     enabled = true
-    interval_seconds = 100
+    interval_seconds = 60
     order = "random"
     recursive = false
 
