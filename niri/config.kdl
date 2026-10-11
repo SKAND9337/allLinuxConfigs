@@ -63,7 +63,7 @@ cursor {
 layout {
     gaps 13
     focus-ring {
-       width 4
+       width 6
     }
 }
 
@@ -118,6 +118,23 @@ layer-rule {
     }
 }
 
+layer-rule {
+    match namespace="^kanjipad$"
+
+    background-effect {
+        blur true
+        xray false
+    }
+    shadow {
+        on
+        softness 30
+        spread 4
+        offset x=0 y=6
+        color "#00000088"
+    }
+    geometry-corner-radius 16
+}
+
 //----------------
 //--WINDOW RULES--
 //----------------
@@ -126,6 +143,13 @@ window-rule {
     open-floating true
     default-column-width { fixed 920; }
     default-window-height { fixed 650; }
+}
+
+window-rule {
+    match app-id="Rayburst"
+    open-floating true
+    //default-column-width { fixed 920; }
+    //default-window-height { fixed 650; }
 }
 
 window-rule {
@@ -179,11 +203,12 @@ binds {
     Mod+Shift+U { spawn "sh" "-c" "~/.local/bin/urban-rofi"; }
     Mod+F { spawn "uwsm" "app" "--" "zen-browser"; }
     Mod+D { spawn "uwsm" "app" "--" "vesktop"; }
-    Mod+S { spawn "uwsm" "app" "--" "spotify"; }
-    Mod+Shift+S { spawn "uwsm" "app" "--" "/home/skand/Applications/sidra-musicp"; }
+    Mod+Shift+S { spawn "uwsm" "app" "--" "spotify"; }
+    Mod+S { spawn "uwsm" "app" "--" "/home/skand/Applications/sidra-musicp"; }
     XF86Calculator { spawn "uwsm" "app" "--" "kcalc"; }
     Mod+V { spawn "uwsm" "app" "--" "kitty" "--class" "clipse" "-e" "clipse"; }
     Mod+Period { spawn "uwsm" "app" "--" "emote"; }
+    Mod+Shift+K { spawn "sh" "-c" "~/.local/bin/kanjipad-toggle"; }
     Ctrl+M { spawn "sh" "-c" "voxtype" "daemon" "&&" "voxtype" "record" "toggle"; }
 	
     Mod+Ctrl+Left { set-column-width "-5%"; }
@@ -199,12 +224,13 @@ binds {
     Mod+X repeat=true { toggle-overview; }
     
     // Noctalia & System 
-    Alt_R { spawn "sh" "-c" "noctalia msg 'panel-toggle launcher'"; }
+    Menu { spawn "sh" "-c" "noctalia msg 'panel-toggle launcher'"; }
     Mod+L { spawn "sh" "-c" "noctalia msg 'session lock'"; }
     Insert { spawn "sh" "-c" "noctalia msg 'settings-toggle'"; }
 
 	// Session Menu
     XF86Launch2 { spawn "sh" "-c" "noctalia msg 'panel-toggle session'"; }
+    Pause { spawn "sh" "-c" "noctalia msg 'panel-toggle session'"; }
 
     // Screenshots
     Print { spawn "noctalia" "msg" "screenshot-annotate"; }
