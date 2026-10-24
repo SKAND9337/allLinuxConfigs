@@ -1,7 +1,9 @@
-include "noctalia.kdl"
 prefer-no-csd
 workspace "V"
-
+hotkey-overlay {
+    skip-at-startup
+    hide-not-bound
+}
 
 
 //---------------
@@ -146,6 +148,13 @@ window-rule {
 }
 
 window-rule {
+    match app-id="hisaab"
+    open-floating true
+    default-column-width { fixed 460; }
+    default-window-height { fixed 650; }
+}
+
+window-rule {
     match app-id="Rayburst"
     open-floating true
     //default-column-width { fixed 920; }
@@ -205,12 +214,12 @@ binds {
     Mod+D { spawn "uwsm" "app" "--" "vesktop"; }
     Mod+Shift+S { spawn "uwsm" "app" "--" "spotify"; }
     Mod+S { spawn "uwsm" "app" "--" "/home/skand/Applications/sidra-musicp"; }
-    XF86Calculator { spawn "uwsm" "app" "--" "kcalc"; }
+    XF86Calculator { spawn "uwsm" "app" "--" "hisaab"; }
     Mod+V { spawn "uwsm" "app" "--" "kitty" "--class" "clipse" "-e" "clipse"; }
     Mod+Period { spawn "uwsm" "app" "--" "emote"; }
     Mod+Shift+K { spawn "sh" "-c" "~/.local/bin/kanjipad-toggle"; }
     Ctrl+M { spawn "sh" "-c" "voxtype" "daemon" "&&" "voxtype" "record" "toggle"; }
-	
+	Ctrl+Shift+b { spawn "uwsm" "app" "--" "chatgpt"; }
     Mod+Ctrl+Left { set-column-width "-5%"; }
     Mod+Ctrl+Right { set-column-width "+5%"; }
     
@@ -446,3 +455,6 @@ layer-rule {
         match namespace="^noctalia-backdrop"
         place-within-backdrop true
     }
+
+
+include "noctalia.kdl"
