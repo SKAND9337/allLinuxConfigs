@@ -270,7 +270,7 @@ hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen({ action = "toggle" }
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("uwsm app -- vesktop"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("uwsm app -- spotify"))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("uwsm app -- /home/skand/Applications/sidra-musicp"))
-hl.bind("XF86Calculator", hl.dsp.exec_cmd("uwsm app -- kcalc"))
+hl.bind("XF86Calculator", hl.dsp.exec_cmd("uwsm app -- hisaab"))
 hl.bind("CTRL + M", hl.dsp.exec_cmd([[sh -c 'voxtype daemon && voxtype record toggle']]))
 
 -- Clipboard
@@ -334,6 +334,12 @@ hl.window_rule({
 hl.window_rule({ 
    match = { class = "org.kde.kcalc" },
    float = true,
+})
+
+hl.window_rule({ 
+   match = { class = "hisaab" },
+   float = true,
+   size = { 460, 650 },
 })
 
 hl.window_rule({
@@ -429,6 +435,7 @@ if c.primary then
         }
     })
 end
+
 
 -- For Noctalia Color templates
 require("noctalia").apply_theme()
