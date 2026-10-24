@@ -13,35 +13,36 @@ sound_theme = "freedesktop"
 sound_volume = 0.39999997615814209
 
 [backdrop]
-blur_intensity = 0.44999998807907104
+blur_intensity = 0.55000001192092896
 enabled = true
-tint_intensity = 0.64999997615814209
+tint_intensity = 0.55000001192092896
 
 [bar]
 order = [ "Main" ]
 
     [bar.Main]
     auto_hide = true
+    auto_hide_delay_ms = 0
     background_opacity = 0.14999999105930328
-    border = "primary"
-    border_width = 2.0
+    border = "secondary"
+    border_width = 2.5
     capsule = true
-    capsule_border = "on_hover"
-    capsule_border_width = 1.0
+    capsule_border = "primary"
+    capsule_border_width = 1.5
     capsule_fill = "surface_variant"
     capsule_group = []
-    capsule_opacity = 0.39999997615814209
-    capsule_padding = 6.0
-    capsule_radius = 9.0
-    capsule_thickness = 0.75
-    center = [ "launcher", "workspaces", "widget" ]
+    capsule_opacity = 0.25
+    capsule_padding = 8.0
+    capsule_radius = 11.0
+    capsule_thickness = 0.75999999046325684
+    center = [ "bar", "workspaces", "widget" ]
     compositor_blur = true
     concave_edge_corners = true
     contact_shadow = true
     enabled = true
-    end = [ "notifications", "date", "volume", "battery", "network", "control-center", "session" ]
+    end = [ "notifications", "date", "volume", "battery", "network" ]
     font_family = "Geist Mono"
-    font_scale = 1.0
+    font_scale = 1.1000000238418579
     font_weight = 600
     hover_highlight = true
     layer = "overlay"
@@ -125,15 +126,14 @@ width = 680
     type = "weather"
 
 [desktop_widgets]
+active_profile = 1
 enabled = true
 schema_version = 2
 widget_order = [
-    "desktop-widget-0000000000000004",
-    "desktop-widget-0000000000000003",
-    "desktop-widget-0000000000000002",
-    "desktop-widget-0000000000000005",
-    "desktop-widget-0000000000000007",
-    "desktop-widget-0000000000000006"
+    "desktop-widget-0000000000000008",
+    "desktop-widget-000000000000000a",
+    "desktop-widget-000000000000000c",
+    "desktop-widget-000000000000000d"
 ]
 
     [desktop_widgets.grid]
@@ -141,51 +141,11 @@ widget_order = [
     major_interval = 4
     visible = true
 
-    [desktop_widgets.widget.desktop-widget-0000000000000002]
-    box_height = 96.0
-    box_width = 336.0
-    cx = 1712.0
-    cy = 84.0
-    enabled = true
-    output = "eDP-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
-    rotation = 0.0
-    type = "clock"
-
-        [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
-        background = true
-        background_opacity = 0.080000000000000002
-        background_padding = 11
-        background_radius = 24
-        center_text = true
-        clock_style = "digital"
-        format = "{:%I:%M:%S%p}"
-        shadow = true
-
-    [desktop_widgets.widget.desktop-widget-0000000000000003]
-    box_height = 264.0
-    box_width = 624.0
-    cx = 352.0
-    cy = 888.0
-    enabled = true
-    output = "eDP-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
-    rotation = 0.0
-    type = "media_player"
-
-        [desktop_widgets.widget.desktop-widget-0000000000000003.settings]
-        background_opacity = 0.25
-        background_padding = 6
-        background_radius = 24
-        hide_when_no_media = true
-
-    [desktop_widgets.widget.desktop-widget-0000000000000004]
-    box_height = 272.0
-    box_width = 480.0
-    cx = 1616.0
-    cy = 884.0
+    [desktop_widgets.widget.desktop-widget-0000000000000008]
+    box_height = 216.0
+    box_width = 384.0
+    cx = 232.0
+    cy = 912.0
     enabled = true
     output = "eDP-1"
     placement_height = 1080.0
@@ -193,54 +153,41 @@ widget_order = [
     rotation = 0.0
     type = "sysmon"
 
-        [desktop_widgets.widget.desktop-widget-0000000000000004.settings]
-        background_opacity = 0.25
-        background_padding = 5
+        [desktop_widgets.widget.desktop-widget-0000000000000008.settings]
+        background_opacity = 0.14999999999999999
+        background_padding = 0
         background_radius = 24
         stat = "cpu_usage"
         stat2 = "cpu_temp"
 
-    [desktop_widgets.widget.desktop-widget-0000000000000005]
-    box_height = 120.0
-    box_width = 288.0
-    cx = 1712.0
-    cy = 664.0
+    [desktop_widgets.widget.desktop-widget-000000000000000a]
+    box_height = 72.0
+    box_width = 264.0
+    cx = 172.0
+    cy = 96.0
     enabled = true
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
     rotation = 0.0
-    type = "weather"
+    type = "clock"
 
-        [desktop_widgets.widget.desktop-widget-0000000000000005.settings]
-        background_opacity = 0.25
-        background_padding = 0
+        [desktop_widgets.widget.desktop-widget-000000000000000a.settings]
+        background = true
+        background_opacity = 0.14999999999999999
+        background_padding = 10
         background_radius = 24
+        center_text = true
+        clock_style = "digital"
+        font_family = "DejaVu Serif"
+        format = "{:%I:%M:%S%p}"
+        shadow = true
 
-    [desktop_widgets.widget.desktop-widget-0000000000000006]
-    box_height = 432.0
-    box_width = 1320.0
-    cx = 960.0
-    cy = 180.0
-    enabled = true
-    output = "eDP-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
-    rotation = 0.0
-    type = "h465855hgg/lyrics:desktop"
-
-        [desktop_widgets.widget.desktop-widget-0000000000000006.settings]
-        background = false
-        background_color = "primary"
-        background_opacity = 0.0
-        background_padding = 0
-        background_radius = 32
-
-    [desktop_widgets.widget.desktop-widget-0000000000000007]
-    box_height = 624.0
-    box_width = 624.0
-    cx = 960.0
-    cy = 636.0
+    [desktop_widgets.widget.desktop-widget-000000000000000c]
+    box_height = 456.0
+    box_width = 456.0
+    cx = 1692.0
+    cy = 864.0
     enabled = true
     output = "eDP-1"
     placement_height = 1080.0
@@ -248,16 +195,267 @@ widget_order = [
     rotation = 0.0
     type = "fancy_audio_visualizer"
 
-        [desktop_widgets.widget.desktop-widget-0000000000000007.settings]
+        [desktop_widgets.widget.desktop-widget-000000000000000c.settings]
         background = false
-        bar_width = 0.80000000000000004
-        bloom_intensity = 0.75
-        inner_diameter = 0.30000000000000004
+        bar_width = 0.69999999999999996
+        bloom_intensity = 0.5
+        inner_diameter = 0.40000000000000002
         ring_opacity = 0.30000000000000004
-        rotation_speed = 1.2000000000000002
-        sensitivity = 0.90000000000000002
+        rotation_speed = 0.5
+        sensitivity = 1.3
         visualization_mode = "all"
-        wave_thickness = 0.90000000000000002
+        wave_thickness = 0.69999999999999996
+
+    [desktop_widgets.widget.desktop-widget-000000000000000d]
+    box_height = 408.0
+    box_width = 984.0
+    cx = 960.0
+    cy = 816.0
+    enabled = true
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "h465855hgg/lyrics:desktop"
+
+        [desktop_widgets.widget.desktop-widget-000000000000000d.settings]
+        background = false
+        background_color = "primary"
+        background_opacity = 0.0
+        background_padding = 0
+        background_radius = 32
+
+    [[desktop_widgets.profiles]]
+    name = "MAIN"
+    widget_order = [
+        "desktop-widget-0000000000000004",
+        "desktop-widget-0000000000000003",
+        "desktop-widget-0000000000000002",
+        "desktop-widget-0000000000000005",
+        "desktop-widget-0000000000000007",
+        "desktop-widget-0000000000000006"
+    ]
+
+        [desktop_widgets.profiles.grid]
+        cell_size = 24
+        major_interval = 4
+        visible = true
+
+        [desktop_widgets.profiles.widget.desktop-widget-0000000000000002]
+        box_height = 96.0
+        box_width = 336.0
+        cx = 1712.0
+        cy = 84.0
+        enabled = true
+        output = "eDP-1"
+        placement_height = 1080.0
+        placement_width = 1920.0
+        rotation = 0.0
+        type = "clock"
+
+            [desktop_widgets.profiles.widget.desktop-widget-0000000000000002.settings]
+            background = true
+            background_opacity = 0.080000000000000002
+            background_padding = 11
+            background_radius = 24
+            center_text = true
+            clock_style = "digital"
+            format = "{:%I:%M:%S%p}"
+            shadow = true
+
+        [desktop_widgets.profiles.widget.desktop-widget-0000000000000003]
+        box_height = 240.0
+        box_width = 552.0
+        cx = 316.0
+        cy = 900.0
+        enabled = true
+        output = "eDP-1"
+        placement_height = 1080.0
+        placement_width = 1920.0
+        rotation = 0.0
+        type = "media_player"
+
+            [desktop_widgets.profiles.widget.desktop-widget-0000000000000003.settings]
+            background_opacity = 0.25
+            background_padding = 6
+            background_radius = 24
+            hide_when_no_media = true
+
+        [desktop_widgets.profiles.widget.desktop-widget-0000000000000004]
+        box_height = 240.0
+        box_width = 432.0
+        cx = 1640.0
+        cy = 900.0
+        enabled = true
+        output = "eDP-1"
+        placement_height = 1080.0
+        placement_width = 1920.0
+        rotation = 0.0
+        type = "sysmon"
+
+            [desktop_widgets.profiles.widget.desktop-widget-0000000000000004.settings]
+            background_opacity = 0.25
+            background_padding = 5
+            background_radius = 24
+            stat = "cpu_usage"
+            stat2 = "cpu_temp"
+
+        [desktop_widgets.profiles.widget.desktop-widget-0000000000000005]
+        box_height = 96.0
+        box_width = 216.0
+        cx = 1748.0
+        cy = 708.0
+        enabled = true
+        output = "eDP-1"
+        placement_height = 1080.0
+        placement_width = 1920.0
+        rotation = 0.0
+        type = "weather"
+
+            [desktop_widgets.profiles.widget.desktop-widget-0000000000000005.settings]
+            background_opacity = 0.25
+            background_padding = 0
+            background_radius = 24
+
+        [desktop_widgets.profiles.widget.desktop-widget-0000000000000006]
+        box_height = 432.0
+        box_width = 1608.0
+        cx = 960.0
+        cy = 180.0
+        enabled = true
+        output = "eDP-1"
+        placement_height = 1080.0
+        placement_width = 1920.0
+        rotation = 0.0
+        type = "h465855hgg/lyrics:desktop"
+
+            [desktop_widgets.profiles.widget.desktop-widget-0000000000000006.settings]
+            background = false
+            background_color = "primary"
+            background_opacity = 0.0
+            background_padding = 0
+            background_radius = 32
+
+        [desktop_widgets.profiles.widget.desktop-widget-0000000000000007]
+        box_height = 576.0
+        box_width = 600.0
+        cx = 960.0
+        cy = 660.0
+        enabled = true
+        output = "eDP-1"
+        placement_height = 1080.0
+        placement_width = 1920.0
+        rotation = 0.0
+        type = "fancy_audio_visualizer"
+
+            [desktop_widgets.profiles.widget.desktop-widget-0000000000000007.settings]
+            background = false
+            bar_width = 0.69999999999999996
+            bloom_intensity = 0.5
+            inner_diameter = 0.40000000000000002
+            ring_opacity = 0.30000000000000004
+            rotation_speed = 1.6000000000000001
+            sensitivity = 1.3
+            visualization_mode = "all"
+            wave_thickness = 0.69999999999999996
+
+    [[desktop_widgets.profiles]]
+    name = "ALT"
+    widget_order = [
+        "desktop-widget-0000000000000008",
+        "desktop-widget-000000000000000a",
+        "desktop-widget-000000000000000c",
+        "desktop-widget-000000000000000d"
+    ]
+
+        [desktop_widgets.profiles.grid]
+        cell_size = 24
+        major_interval = 4
+        visible = true
+
+        [desktop_widgets.profiles.widget.desktop-widget-0000000000000008]
+        box_height = 216.0
+        box_width = 384.0
+        cx = 232.0
+        cy = 912.0
+        enabled = true
+        output = "eDP-1"
+        placement_height = 1080.0
+        placement_width = 1920.0
+        rotation = 0.0
+        type = "sysmon"
+
+            [desktop_widgets.profiles.widget.desktop-widget-0000000000000008.settings]
+            background_opacity = 0.14999999999999999
+            background_padding = 0
+            background_radius = 24
+            stat = "cpu_usage"
+            stat2 = "cpu_temp"
+
+        [desktop_widgets.profiles.widget.desktop-widget-000000000000000a]
+        box_height = 72.0
+        box_width = 264.0
+        cx = 172.0
+        cy = 96.0
+        enabled = true
+        output = "eDP-1"
+        placement_height = 1080.0
+        placement_width = 1920.0
+        rotation = 0.0
+        type = "clock"
+
+            [desktop_widgets.profiles.widget.desktop-widget-000000000000000a.settings]
+            background = true
+            background_opacity = 0.14999999999999999
+            background_padding = 10
+            background_radius = 24
+            center_text = true
+            clock_style = "digital"
+            font_family = "DejaVu Serif"
+            format = "{:%I:%M:%S%p}"
+            shadow = true
+
+        [desktop_widgets.profiles.widget.desktop-widget-000000000000000c]
+        box_height = 456.0
+        box_width = 456.0
+        cx = 1692.0
+        cy = 864.0
+        enabled = true
+        output = "eDP-1"
+        placement_height = 1080.0
+        placement_width = 1920.0
+        rotation = 0.0
+        type = "fancy_audio_visualizer"
+
+            [desktop_widgets.profiles.widget.desktop-widget-000000000000000c.settings]
+            background = false
+            bar_width = 0.69999999999999996
+            bloom_intensity = 0.5
+            inner_diameter = 0.40000000000000002
+            ring_opacity = 0.30000000000000004
+            rotation_speed = 0.5
+            sensitivity = 1.3
+            visualization_mode = "all"
+            wave_thickness = 0.69999999999999996
+
+        [desktop_widgets.profiles.widget.desktop-widget-000000000000000d]
+        box_height = 408.0
+        box_width = 984.0
+        cx = 960.0
+        cy = 816.0
+        enabled = true
+        output = "eDP-1"
+        placement_height = 1080.0
+        placement_width = 1920.0
+        rotation = 0.0
+        type = "h465855hgg/lyrics:desktop"
+
+            [desktop_widgets.profiles.widget.desktop-widget-000000000000000d.settings]
+            background = false
+            background_color = "primary"
+            background_opacity = 0.0
+            background_padding = 0
+            background_radius = 32
 
 [dock]
 active_monitor_only = false
@@ -444,6 +642,7 @@ widget_order = [
         show_keyboard_layout = true
         show_login_button = true
         show_media = true
+        show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = true
         show_weather = true
@@ -472,6 +671,7 @@ widget_order = [
         show_keyboard_layout = true
         show_login_button = true
         show_media = true
+        show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = false
         show_weather = false
@@ -500,6 +700,7 @@ widget_order = [
         show_keyboard_layout = true
         show_login_button = true
         show_media = true
+        show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = true
         show_weather = true
@@ -640,6 +841,7 @@ scale = 1.1000000238418579
     bluetooth = true
     brightness = true
     caffeine = true
+    custom = true
     dnd = true
     keyboard_backlight = true
     keyboard_layout = true
@@ -657,6 +859,9 @@ scale = 1.1000000238418579
 client_id = "47970"
 client_secret = "D7ci88H8su0px3lcdfxZLVkqpvuVDfkOrS0EQjsJ"
 library_layer = "overlay"
+
+[plugin_settings."nicomaure/agy"]
+show_label = false
 
 [plugin_settings."noctalia/mpvpaper"]
 video_directory = "/home/skand/Pictures/WALLPAPERS"
@@ -682,7 +887,14 @@ update_mode = "background"
 
 [plugins]
 auto_update = "all"
-enabled = [ "h465855hgg/lyrics", "noctalia/translator", "cleboost/anilist", "yuuto/arch-updater" ]
+enabled = [
+    "h465855hgg/lyrics",
+    "noctalia/translator",
+    "cleboost/anilist",
+    "yuuto/arch-updater",
+    "oldirtty/color_picker",
+    "nicomaure/agy"
+]
 
     [[plugins.source]]
     enabled = true
@@ -735,9 +947,11 @@ settings_show_advanced = true
 settings_window_translucent = false
 setup_wizard_enabled = true
 shared_gl_context = true
+show_close_buttons = true
 show_location = true
 telemetry_enabled = false
 time_format = "{:%H:%M:%S}"
+umbriel_audio_provider_enabled = false
 umbriel_overview_type_to_launch_enabled = false
 
     [shell.animation]
@@ -753,14 +967,22 @@ umbriel_overview_type_to_launch_enabled = false
     app_grid = true
     auto_paste = "ctrl_v"
     categories = true
+    category_icons_only = false
     compact = false
+    default_view = "recent"
     fetch_exchange_rates = true
+    layout = "full"
     pinned = []
     provider_prefix = "/"
+    search_position = "bottom"
     show_app_actions = false
     show_app_origin_indicator = true
     show_icons = true
+    show_session_button = true
+    show_settings_button = true
     sort_by_usage = false
+    track_usage = true
+    width = 760
 
         [shell.launcher.dmenu]
 
@@ -825,6 +1047,7 @@ umbriel_overview_type_to_launch_enabled = false
     freeze_screen = true
     pipe_command = "/usr/bin/wl-"
     pipe_to_command = false
+    region_modifier = "none"
     remember_last_region = false
     save_to_file = true
     show_cursor = false
@@ -942,19 +1165,20 @@ swap_pct_activity_threshold = 20.0
 swap_pct_critical_threshold = 80.0
 
 [theme]
-builtin = "Kanagawa"
-community_palette = "Occult Umbral"
+builtin = "Noctalia"
+community_palette = "Mizuki-Akiyama"
 custom_palette = ""
 mode = "dark"
 pure_black_dark = true
 shell_mode = "dark"
 source = "wallpaper"
-wallpaper_scheme = "m3-tonal-spot"
+sync_color_scheme = true
+wallpaper_scheme = "vibrant"
 
     [theme.templates]
-    builtin_ids = [ "btop", "cava", "emacs", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "kitty", "niri", "qt" ]
+    builtin_ids = [ "alacritty", "btop", "cava", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "kitty", "niri", "qt" ]
     community_ids = [
-        "zen-browser",
+        "sidra",
         "telegram",
         "micro",
         "obsidian",
@@ -990,13 +1214,13 @@ enabled = true
 fill_color = ""
 fill_mode = "crop"
 per_monitor_directories = false
-transition = [ "diamond", "disc", "fade", "golden", "honeycomb", "melt", "pixel", "stripes", "vortex", "wipe", "zoom" ]
+transition = [ "diamond", "disc", "golden", "honeycomb", "melt", "pixel", "vortex", "wipe", "zoom" ]
 transition_duration = 1300.0
 transition_on_startup = true
 
     [wallpaper.automation]
     enabled = true
-    interval_seconds = 60
+    interval_seconds = 80
     order = "random"
     recursive = false
 
@@ -1012,6 +1236,9 @@ max_length = 260.0
 min_length = 80.0
 title_scroll = "none"
 type = "active_window"
+
+[widget.bar]
+type = "nicomaure/agy:bar"
 
 [widget.cpu]
 stat = "cpu_usage"
