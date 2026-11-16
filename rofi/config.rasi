@@ -16,4 +16,5 @@ configuration {
 	kb-clear-line: "Control+a";
 	kb-move-front: "";
 	kb-cancel: "Escape,Control+w";
+	click-to-exit: false;
 }
