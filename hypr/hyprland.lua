@@ -4,7 +4,7 @@
 ------------------------------
 
 local terminal = "kitty"
-local fileManager = "dolphin"
+local fileManager = "luciole"
 local mainMod = "SUPER"
 -- local noctCall = "qs -c noctalia-shell ipc call "
 local noctCall = "noctalia msg "
@@ -36,7 +36,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("uwsm app -- noctalia")
     -- hl.exec_cmd("uwsm app -- qs -c noctalia-shell")
     hl.exec_cmd("uwsm app -- clipse -listen")
-    hl.exec_cmd("uwsm app -- easyeffects --daemon")
     hl.exec_cmd("uwsm app -- vesktop")
     -- hl.exec_cmd("uwsm app -- /opt/abdownloadmanager/bin/ABDownloadManager --background")
     -- hl.exec_cmd("uwsm app -- wl-paste --type text --watch cliphist store")
@@ -254,6 +253,7 @@ hl.bind("CTRL + ALT + G", hl.dsp.exec_cmd("uwsm app -- ghostty"))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("uwsm stop"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("uwsm app -- " .. fileManager))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("uwsm app -- dolphin ~/Pictures/WALLPAPERS/"))
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind("CTRL + SPACE", hl.dsp.exec_cmd("uwsm app -- rofi -show drun"))
 hl.bind(mainMod .. " + CTRL + U", hl.dsp.exec_cmd(".local/bin/free-dictionary-rofi.py"))
@@ -263,6 +263,9 @@ hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(noctCall .. " session lock"))
 hl.bind("Scroll_Lock", hl.dsp.exec_cmd(noctCall .. " panel-toggle session"))
 hl.bind("Insert", hl.dsp.exec_cmd(noctCall .. "settings-toggle"))
 hl.bind("XF86Launch2", hl.dsp.exec_cmd(noctCall .. "panel-toggle session"))
+hl.bind("Menu", hl.dsp.exec_cmd(noctCall .. " panel-toggle launcher"))
+hl.bind("CTRL + SHIFT + B", hl.dsp.exec_cmd("uwsm app -- opencode"))
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd(noctCall .. "desktop-widgets-edit; /usr/bin/noctalia msg desktop-widgets-exit"))
 
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("uwsm app -- zen-browser"))
@@ -302,8 +305,8 @@ hl.bind(mainMod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
 -- hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
 -- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
-hl.bind("mouse:276", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind("mouse:275", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind("mouse:276", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind("mouse:275", hl.dsp.focus({ workspace = "e+1" }))
 
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
@@ -435,6 +438,10 @@ if c.primary then
         }
     })
 end
+
+
+
+
 
 
 -- For Noctalia Color templates
