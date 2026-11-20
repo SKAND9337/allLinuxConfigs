@@ -17,7 +17,6 @@ hotkey-overlay {
 //-------------
 spawn-at-startup "uwsm" "app" "--" "noctalia"
 spawn-at-startup "uwsm" "app" "--" "vesktop"
-spawn-at-startup "uwsm" "app" "--" "easyeffects" "--daemon"
 spawn-at-startup "uwsm" "app" "--" "clipse" "--listen"
 // spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 // spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "image" "--watch" "cliphist" "store"
@@ -146,31 +145,21 @@ window-rule {
     default-column-width { fixed 920; }
     default-window-height { fixed 650; }
 }
-
+ 
 window-rule {
     match app-id="hisaab"
+    focus-ring {
+          on
+          width 3
+    }
     open-floating true
     default-column-width { fixed 460; }
     default-window-height { fixed 650; }
 }
 
 window-rule {
-    match app-id="Rayburst"
-    open-floating true
-    //default-column-width { fixed 920; }
-    //default-window-height { fixed 650; }
-}
-
-window-rule {
     match app-id="^com.mitchellh.ghostty$"
     default-column-width { proportion 0.75; }
-}
-
-window-rule {
-    match app-id="org.kde.kcalc"
-    open-floating true
-    default-column-width { fixed 650; }
-    default-window-height { fixed 620; }
 }
 
 window-rule {
@@ -184,6 +173,36 @@ window-rule {
     open-floating true
     default-column-width { fixed 1900; }
     default-window-height { fixed 1050; }
+}
+
+window-rule {
+    match app-id="^dev.noctalia.luciole$" title="^Save Image"
+    match app-id="^dev.noctalia.luciole$" title="^Open File"       
+    match app-id="^dev.noctalia.luciole$" title="^Open File"
+    match app-id="^dev.noctalia.luciole$" title="^File Upload"
+    match app-id="^dev.noctalia.luciole$" title="^Save File"
+    match app-id="^dev.noctalia.luciole$" title="^Select Folder"
+    match app-id="^dev.noctalia.luciole$" title="^Choose"
+    match app-id="^dev.noctalia.luciole$" title="^Select Image"
+    match title="^Open Files$"
+    match title="^Choose a file$"
+    open-floating true
+    open-maximized-to-edges false
+    default-column-width { fixed 1220; }
+    default-window-height { fixed 785; }
+}
+
+window-rule {
+    match app-id="^dev.noctalia.luciole$"
+    exclude title="^File Upload"
+    exclude title="^Enter name"
+    exclude title="^Select Image"
+    exclude title="^Open File"
+    exclude title="^Save Image"
+    exclude title="^Save File"
+    exclude title="^Select Folder"
+    exclude title="^Choose"
+    open-maximized-to-edges true
 }
 
 window-rule {
@@ -206,7 +225,8 @@ binds {
     Ctrl+Shift+Escape { spawn "uwsm" "app" "--" "kitty" "-e" "btop"; }
     Ctrl+Alt+T { spawn "uwsm" "app" "--" "kitty"; } 
     Ctrl+Alt+G { spawn "uwsm" "app" "--" "ghostty"; }
-    Mod+E { spawn "uwsm" "app" "--" "dolphin"; }
+    Mod+E { spawn "uwsm" "app" "--" "luciole"; }
+    Mod+P { spawn "sh" "-c" "dolphin ~/Pictures/WALLPAPERS/"; }
     Ctrl+Space { spawn "uwsm" "app" "--" "rofi" "-show" "drun"; }
     Mod+Ctrl+U { spawn "sh" "-c" "~/.local/bin/free-dictionary-rofi.py"; }
     Mod+Shift+U { spawn "sh" "-c" "~/.local/bin/urban-rofi"; }
@@ -219,7 +239,7 @@ binds {
     Mod+Period { spawn "uwsm" "app" "--" "emote"; }
     Mod+Shift+K { spawn "sh" "-c" "~/.local/bin/kanjipad-toggle"; }
     Ctrl+M { spawn "sh" "-c" "voxtype" "daemon" "&&" "voxtype" "record" "toggle"; }
-	Ctrl+Shift+b { spawn "uwsm" "app" "--" "chatgpt"; }
+	Ctrl+Shift+b { spawn "uwsm" "app" "--" "opencode"; }
     Mod+Ctrl+Left { set-column-width "-5%"; }
     Mod+Ctrl+Right { set-column-width "+5%"; }
     
@@ -236,7 +256,8 @@ binds {
     Menu { spawn "sh" "-c" "noctalia msg 'panel-toggle launcher'"; }
     Mod+L { spawn "sh" "-c" "noctalia msg 'session lock'"; }
     Insert { spawn "sh" "-c" "noctalia msg 'settings-toggle'"; }
-
+	Mod+Shift+R { spawn "sh" "-c" "/usr/bin/noctalia msg desktop-widgets-edit; /usr/bin/noctalia msg desktop-widgets-exit"; }
+	
 	// Session Menu
     XF86Launch2 { spawn "sh" "-c" "noctalia msg 'panel-toggle session'"; }
     Pause { spawn "sh" "-c" "noctalia msg 'panel-toggle session'"; }
@@ -360,7 +381,7 @@ vec4 resize_color(vec3 c, vec3 sz) {
 	}
 	
     window-open {
-        duration-ms 380
+        duration-ms 450
         curve "ease-out-quad"
 
         custom-shader r"
@@ -406,7 +427,7 @@ vec4 resize_color(vec3 c, vec3 sz) {
     }
 
     window-close {
-        duration-ms 350
+        duration-ms 450
         curve "ease-out-quad"
 
         custom-shader r"
@@ -454,7 +475,11 @@ vec4 resize_color(vec3 c, vec3 sz) {
 layer-rule {
         match namespace="^noctalia-backdrop"
         place-within-backdrop true
-    }
+}
+
+
+
+
 
 
 include "noctalia.kdl"
